@@ -5,7 +5,7 @@ export default defineConfig({
   title: "",
   description: "",
   ignoreDeadLinks: true,
-  base: process.env.NODE_ENV === 'production' ? '/docs/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/stydocs/' : '/',
   assetsDir: 'stydocs',
   outDir: 'stydocs',
   themeConfig: {
