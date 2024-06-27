@@ -6,8 +6,8 @@ export default defineConfig({
   description: "",
   ignoreDeadLinks: true,
   base: process.env.NODE_ENV === 'production' ? '/docs/' : '/',
-  assetsDir: 'yinke',
-  outDir: 'yinke',
+  assetsDir: 'stydocs',
+  outDir: 'stydocs',
   themeConfig: {
     // siteTitle: false,
     // https://vitepress.dev/reference/default-theme-config
@@ -25,7 +25,6 @@ export default defineConfig({
         text: 'docker',
         collapsed: false,
         items: [
-          { text: 'Docker', link: '/docs/docker/Docker' },
           { text: 'Docker2022', link: '/docs/docker/Docker2022' },
           // { text: 'K8S', link: '/docs/docker/K8S' }
         ]
