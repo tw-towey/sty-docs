@@ -27,7 +27,7 @@ export default defineConfig({
         items: [
           { text: 'Docker', link: '/docs/docker/Docker' },
           { text: 'Docker2022', link: '/docs/docker/Docker2022' },
-          { text: 'K8S', link: '/docs/docker/K8S' }
+          // { text: 'K8S', link: '/docs/docker/K8S' }
         ]
       },
 
