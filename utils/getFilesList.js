@@ -64,7 +64,7 @@ const handleRouteList = function (lists){
   const routerList = lists.map((file)=>{
     return {
       'text': file.filename.substr(0, file.filename.lastIndexOf('.')),
-      'link': "/docs/nginx/" + file.filename.substr(0, file.filename.lastIndexOf('.'))
+      'link': "/docs/docker/" + file.filename.substr(0, file.filename.lastIndexOf('.'))
     }
   })
   return routerList;
@@ -73,7 +73,7 @@ const handleRouteList = function (lists){
 const getFilesList = function() {
   let lists = [];
   let routerList = [];
-  readFileList('./src/docs/nginx/', lists, false);
+  readFileList('./src/docs/docker/', lists, false);
   routerList = handleRouteList(lists);
   console.log(routerList);
   // // 下载图片
