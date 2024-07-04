@@ -382,7 +382,7 @@ export default defineConfig({
       },
       {
         text: "mysql基础",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "第00章 写在前面",
@@ -468,7 +468,7 @@ export default defineConfig({
       },
       {
         text: "mysql进阶",
-        collapsed: false,
+        collapsed: true,
         items: [
           {
             text: "第01章 Linux下MySQL的安装与使用",
