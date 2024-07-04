@@ -87,10 +87,6 @@ export default defineConfig({
             link: "/docs/docker/11 Docker网络.md",
           },
           {
-            text: "11",
-            link: "/docs/docker/11.md",
-          },
-          {
             text: "12 限制容器资源",
             link: "/docs/docker/12 限制容器资源.md",
           },
@@ -535,8 +531,8 @@ export default defineConfig({
             link: "/docs/mysql/pro/第15章 锁.md",
           },
           {
-            text: "第16章 多版本并发控制 ",
-            link: "/docs/mysql/pro/第16章 多版本并发控制 .md",
+            text: "第16章 多版本并发控制",
+            link: "/docs/mysql/pro/第16章 多版本并发控制.md",
           },
           {
             text: "第17章 其他数据库日志",
