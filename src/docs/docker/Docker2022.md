@@ -107,7 +107,7 @@ sudo rm -rf /var/lib/containerd
 
 **docker run 命令流程**
 
-<img width="703" alt="run流程" src="./images/136965696-d2c7bf11-9296-46aa-9771-a294f7924d11.png">
+<img width="703" alt="run流程" src="http://p4ui.toweydoc.tech:20080/images/stydocs/136965696-d2c7bf11-9296-46aa-9771-a294f7924d11.png">
 
 
 **Docker 是怎么工作的？**
@@ -249,7 +249,7 @@ docker stats_
 
 ## Docker 端口映射
 
-<img width="507" alt="端口映射" src="./images/137336392-38cc0a19-5a06-402c-858a-613b16225c5b.png">
+<img width="507" alt="端口映射" src="http://p4ui.toweydoc.tech:20080/images/stydocs/137336392-38cc0a19-5a06-402c-858a-613b16225c5b.png">
 
 **描述**：通过外网访问 `ip:3344` 地址，请求通过防火墙 3344 端口，访问到服务器，由于 3344 端口映射到容器的 80 端口，所以请求最终访问到容器的 80 端口所在服务。_
             
@@ -298,7 +298,7 @@ Docker 目前支持的联合文件系统包括 OverlayFS、AUFS、Btrfs、VFS、
 
 **数据卷**是被设计用来持久化数据的，它的生命周期独立于容器，Docker 不会在容器被删除后自动删除数据卷，并且也不存在垃圾回收这样的机制来处理没有任何容器引用的数据卷。
 
-<img width="375" alt="数据卷" src="./images/137591250-fbef36f4-9452-49b7-9747-771b569eff88.png">
+<img width="375" alt="数据卷" src="http://p4ui.toweydoc.tech:20080/images/stydocs/137591250-fbef36f4-9452-49b7-9747-771b569eff88.png">
 
 ### 数据卷使用
 
@@ -316,7 +316,7 @@ docker run -d -p 3309:3306 -v /home/mysql/data:/var/lib/mysql -v /home/mysql/con
 ```
 使用 `docker inspect` 命令可以查查容器的挂载信息：
 
-<img width="523" alt="挂载信息" src="./images/137592345-d0ddd350-3e44-4941-84d1-31044e4c9d74.png">
+<img width="523" alt="挂载信息" src="http://p4ui.toweydoc.tech:20080/images/stydocs/137592345-d0ddd350-3e44-4941-84d1-31044e4c9d74.png">
 
 **2. 具名挂载**
 ```shell

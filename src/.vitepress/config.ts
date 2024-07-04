@@ -663,16 +663,6 @@ export default defineConfig({
         ],
       },
       {
-        text: "nginx",
-        collapsed: true,
-        items: [
-          {
-            text: "nginx",
-            link: "/docs/nginx/nginx.md",
-          },
-        ],
-      },
-      {
         text: "node",
         collapsed: true,
         items: [
