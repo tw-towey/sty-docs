@@ -466,7 +466,7 @@ http{
             index  index.html index.htm;
         }
         location /image/ { # 静态资源路径
-        	root /data/; 
+        	alias /data/; 
         	autoindex on; #列出当前文件夹的内容
         }
 }

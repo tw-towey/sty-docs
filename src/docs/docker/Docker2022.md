@@ -18,7 +18,7 @@ Docker 是一个开源的应用容器引擎，而一个容器其实是一个虚�
 
 ### Docker 架构
 
-![docker-architecture](./images/137682218-a1065e61-4d37-403e-a6c1-ccc0ee71409b.png)
+![docker-architecture](http://p4ui.toweydoc.tech:20080/images/stydocs/137682218-a1065e61-4d37-403e-a6c1-ccc0ee71409b.png)
 
 ### Docker 基本组成
 
@@ -81,7 +81,7 @@ sudo systemctl enable docker # 设为开机启动
 ```shell
 sudo docker version
 ```
-![docker-version](./images/136809766-9f9fc7b7-313e-4958-b838-705aae5c4db4.png)
+![docker-version](http://p4ui.toweydoc.tech:20080/images/stydocs/136809766-9f9fc7b7-313e-4958-b838-705aae5c4db4.png)
 
 8. 查看下载的镜像
 ```shell
@@ -123,7 +123,7 @@ Docker 是一个 Client-Server 结构的系统，它的守护进程运行在主�
 当新建一个容器时，Docker 不需要和虚拟机一样重新加载一个操作系统，避免了引导、加载操作系统内核这个比较费时费资源的过程；当新建一个虚拟机时，虚拟机软件需要加载 Guest OS，这个新建过程是分钟级别的，而 Docker 由于直接利用宿主机的操作系统则省略了这个过程，因此新建一个 Docker 容器只需要几秒钟。
 
 Docker 与 VM 抽象层对比图：
-![docker-vm](./images/136968089-501bc572-7787-4bff-a898-a0d4ee04dbd7.jpeg)_
+![docker-vm](http://p4ui.toweydoc.tech:20080/images/stydocs/136968089-501bc572-7787-4bff-a898-a0d4ee04dbd7.jpeg)_
             
 
 ## Docker 常用命令
@@ -331,11 +331,11 @@ docker run -d -P -v /etc/nginx --name nginx01 nginx
 
 使用 `docker volume ls` 可以查看所有的数据卷名称：
 
-![volume-ls](./images/137609023-db5353e0-fa57-479b-a2e2-e0cb93ae9517.png)
+![volume-ls](http://p4ui.toweydoc.tech:20080/images/stydocs/137609023-db5353e0-fa57-479b-a2e2-e0cb93ae9517.png)
 
 使用 `docker volume inspect <数据卷名 >` 可以查看数据卷实际挂载的地址：
 
-![volume-addr](./images/137609170-506b8dc4-5601-4806-904e-1d1c22b2f3ef.png)
+![volume-addr](http://p4ui.toweydoc.tech:20080/images/stydocs/137609170-506b8dc4-5601-4806-904e-1d1c22b2f3ef.png)
 
 ### 数据卷删除
 
@@ -362,7 +362,7 @@ Dokcerfile 是用来构建 Docker 镜像的文件，是一种命令参数脚本�
 
 ### Dockerfile 指令
 
-![dockerfile-command](./images/137631012-44390c4a-8d9b-4446-b516-5ae3e22263a7.jpeg)
+![dockerfile-command](http://p4ui.toweydoc.tech:20080/images/stydocs/137631012-44390c4a-8d9b-4446-b516-5ae3e22263a7.jpeg)
 
 **FROM**
 
@@ -429,7 +429,7 @@ docker tag <镜像 ID> <tag> #  示列：docker tag fbb399df2633 starzheng/mycen
 ```
 
 ### 小结
-![docker-summary](./images/137680149-65f86cdd-24b9-4b74-8dd2-c7c5fc619c8f.png)_
+![docker-summary](http://p4ui.toweydoc.tech:20080/images/stydocs/137680149-65f86cdd-24b9-4b74-8dd2-c7c5fc619c8f.png)_
             
 
 ## Docker 网络
@@ -448,7 +448,7 @@ veth-pair 就是一对的虚拟设备接口，和 tap/tun 设备不同的是，�
 正因为有 veth-pair，docker 容器与容器之间是可以相互 ping 通的，Linux 与 docker 容器之间通过 docker0 是可以 ping 通的。
 
 docker bridge 网络模式图：
-![docker-bridge](./images/137933057-273852ef-25ce-4a10-b648-5a2679a16070.png)
+![docker-bridge](http://p4ui.toweydoc.tech:20080/images/stydocs/137933057-273852ef-25ce-4a10-b648-5a2679a16070.png)
 
 docker0 网桥上的 veth 网卡设备相当于交换机上的端口，可以将多个容器连接在它们上面。docker0 网桥为连在其上的容器转发数据帧，使得同一台宿主机上的 docker 容器之间可以相互通信。
 
@@ -477,17 +477,17 @@ Docker 网络模式有四种：
 - container 模式（不常用）
 - none 模式
 
-![docker-network](./images/138299340-e978c5ed-1ba5-4115-a562-6cff42dc7727.jpg)
+![docker-network](http://p4ui.toweydoc.tech:20080/images/stydocs/138299340-e978c5ed-1ba5-4115-a562-6cff42dc7727.jpg)
 
 **bridge 模式**
 
 Docker 启动容器时，默认使用的网络模式就是 bridge 模式。网络拓扑图：
 
-![docker-bridge](./images/138299509-ec85bc38-4f8c-4986-b1d6-2acd3ebae672.jpg)
+![docker-bridge](http://p4ui.toweydoc.tech:20080/images/stydocs/138299509-ec85bc38-4f8c-4986-b1d6-2acd3ebae672.jpg)
 
 **Docker 容器与外界通信过程**：启动 Docker 服务时，默认会给宿主机添加 iptables 规则，用于容器与外界进行通信。我们可以通过 iptables-save 命令查看到 iptabales 的规则信息，如下图：
 
-![image](./images/138464515-3225f612-f313-486b-bb69-11c26eb8a702.png)
+![image](http://p4ui.toweydoc.tech:20080/images/stydocs/138464515-3225f612-f313-486b-bb69-11c26eb8a702.png)
 
 其中，nat 表上 POSTROUTING 链上的有这么一条规则：
 ```shell
@@ -512,5 +512,5 @@ cat /proc/sys/net/ipv4/ip_forward
 host 模式下启动的容器，网络不再与宿主机隔离，访问容器服务可以直接使用访问宿主机对应的网络端口，且不需要端口转发，性能比较好。但 host 模式也有非常严重的缺点：**容器没有隔离的网络，会与其他服务竞争宿主机的网络，导致宿主机网络状态不可控，因此无法用在生产环境**。
 
 网络拓扑图：
-![docker-host](./images/138300030-041ca053-80ea-4672-b791-80be19e4d736.jpg)
+![docker-host](http://p4ui.toweydoc.tech:20080/images/stydocs/138300030-041ca053-80ea-4672-b791-80be19e4d736.jpg)
             

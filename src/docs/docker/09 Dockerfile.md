@@ -88,7 +88,7 @@ docker build -t myubuntu:1.0.0 .      # 后面有一个"点"
 
 构建需要一点时间，构建完成，可以看到在本地生成了镜像：
 
-![](./images/20240219232521.c5edbaca.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240219232521.c5edbaca.jpg)
 
 ### 3 运行镜像
 
@@ -102,7 +102,7 @@ docker run -it myubuntu:1.0.0 /bin/bash
 
 运行后，查看容器中是否有 `vim` 和 `ifconfig` 命令，可以看到我们自己的镜像已经包含了 `vim` 和 `ifconfig`。
 
-![](./images/20240219233153.eb440287.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240219233153.eb440287.jpg)
 
   
 
@@ -114,13 +114,13 @@ docker run -it myubuntu:1.0.0 /bin/bash
 
 例如在 dockerhub 上搜索 redis 容器，进入到容器详情页面，提供了 Dockefile 的链接：
 
-![](./images/20240219230943.5a50d711.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240219230943.5a50d711.jpg)
 
   
 
 点击链接可以跳转到容器的 Dockerfile 页面，查看容器 Dockerfile 的详细内容：
 
-![](./images/20240219231329.60b04499.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240219231329.60b04499.jpg)
 
 当然对于我们来说一般也不用编写这么复杂的镜像，只需要了解原理，看得懂简单的镜像编写即可。
 
@@ -522,7 +522,7 @@ dockerhub 上已经有了 Tomcat 镜像了，这里我们只是为了学习 Dock
 
 这里我下载 Tomcat10 的 `apache-tomcat-10.1.19.tar.gz` 包。
 
-![](./images/20240220094019.b7e247e0.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240220094019.b7e247e0.jpg)
 
 ### 2 编写Dockerfile
 
@@ -575,7 +575,7 @@ docker build -t my-tomcat:10.1.19 .     # 后面有个点
 
 构建如下：
 
-![](./images/20240221100504.e06ba6c8.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240221100504.e06ba6c8.jpg)
 
 ### [#](https://www.doubibiji.com/Docker-Adv/01-Dockerfile.html#_4-%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8) 4 运行容器
 
@@ -587,12 +587,12 @@ docker run -d -p 8080:8080 my-tomcat:10.1.19
 
 运行后，可查看正在运行的容器：
 
-![](./images/20240221100718.eddf0005.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240221100718.eddf0005.jpg)
 
 ### [#](https://www.doubibiji.com/Docker-Adv/01-Dockerfile.html#_5-%E8%AE%BF%E9%97%AEtomcat) 5 访问Tomcat
 
 运行容器后，可以访问宿主机的8080端口，来访问 Tomcat 了：
 
-![](./images/20240221100912.131ec57a.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240221100912.131ec57a.jpg)
 
 完成！

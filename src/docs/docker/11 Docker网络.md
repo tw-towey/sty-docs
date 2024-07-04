@@ -14,7 +14,7 @@
 
 在启动了 Docker 之后，使用 `ifconfig` 命令查看网络信息，可以看到一个 docker0 的网络：
 
-![](./images/20240224115325.989c4f98.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224115325.989c4f98.jpg)
 
 **这个 docker0 就是 Docker 创建的虚拟网桥，用于容器与宿主机、容器与容器之间的网络通信。**
 
@@ -31,7 +31,7 @@
 docker network ls
 ```
 
-![](./images/20240224173126.d221e77e.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224173126.d221e77e.jpg)
 
 默认会有 `bridge` 、`host` 、 `none` 三种模式。
 
@@ -39,7 +39,7 @@ docker network ls
 
 网络操作有一些命令，这里先简单了解一下，可以通过帮助命令来查看有哪些命令：
 
-![](./images/20240224173627.229c4e94.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224173627.229c4e94.jpg)
 
 可以看到 `docker network` 有 connect 、create、disconnect、inspect、ls、prune、rm 命令。
 
@@ -57,7 +57,7 @@ docker network create doubi-network
 
 创建未完成，可以查看到网络，默认也是 `bridge` 模式。
 
-![](./images/20240224173942.2bd49f48.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224173942.2bd49f48.jpg)
 
 ### 2 删除网络
 
@@ -73,7 +73,7 @@ docker network rm doubi-network
 
 运行如下：
 
-![](./images/20240224174301.901d1548.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224174301.901d1548.jpg)
 
 ### 3 查看网络详细信息
 
@@ -90,7 +90,7 @@ docker network inspect bridge
 
 查看名称为 `bridge` 的网络的详细信息：
 
-![](./images/20240224174937.f29c15d1.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224174937.f29c15d1.jpg)
 
 上图可以看到 `bridge` 网络的网桥名称就是 `docker0` 。
 
@@ -135,7 +135,7 @@ docker inspect ubuntu-2 | tail -n 20
 
 运行如下：
 
-![](./images/20240224223609.8b383f6f.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224223609.8b383f6f.jpg)
 
 通过上面可以看出，每个容器有自己的 IP。
 
@@ -143,7 +143,7 @@ docker inspect ubuntu-2 | tail -n 20
 
 此时在宿主机上，使用 `ip addr` 命令查看网络，会发现多了两个 `veth` 开头的虚拟网络接口，这两个虚拟网络接口用来和上面创建的两个容器进行通信，如下：
 
-![](./images/20240224233410.9b5594d7.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224233410.9b5594d7.jpg)
 
   
 
@@ -151,13 +151,13 @@ docker inspect ubuntu-2 | tail -n 20
 
 > 如果容器中没有 `ip addr` 命令，可以使用 apt 命令安装一下：`apt update && apt-get install -y iproute2`
 
-![](./images/20240224234310.24dee7de.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224234310.24dee7de.jpg)
 
 可以看到容器中的 `5: eth0@if6`，这里表示 `eth0` 的 `5` 和 宿主机的 `veth` 的 `6` 对应，可以再看一下上面宿主机的网络。
 
 也就是说 `docker0` 网桥在宿主机上会给每个容器创建一个 `veth` 开头的虚拟网络接口，在容器内，会为每个容器会创建 `eth0` 的虚拟网络接口，使用 `veth-pair` 技术，每个 `veth` 会匹配容器内部的 `eth0`，两两配对，实现通信。如下图：
 
-![](./images/20240224233303.e2a5e453.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240224233303.e2a5e453.jpg)
 
 所以容器间通信都需要经过 `docker0` ，`docker0` 相当于各个容器的网关。
 
@@ -177,7 +177,7 @@ docker inspect ubuntu-2 | tail -n 20
 
 **host网络模式**：容器将不会虚拟出自己的网卡，所以没有自己的 IP，而是使用宿主机的 IP 和端口。
 
-![](./images/20240225112803.626774e4.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225112803.626774e4.jpg)
 
   
 
@@ -202,7 +202,7 @@ docker run -d --network host --name tomcat-1 doubibiji/tomcat10
 
 如果指定端口，不仅没有作用，还会有一个警告：
 
-![](./images/20240225144953.5fcf3c47.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225144953.5fcf3c47.jpg)
 
   
 
@@ -227,7 +227,7 @@ none 网络模式一般很少用，这里不多解释。
 
 **container网络模式**：容器不会创建自己的虚拟网卡和 IP ，而是和一个指定的容器共享 IP、端口，也就是用别的容器的IP和端口。
 
-![](./images/20240225151234.872336e2.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225151234.872336e2.jpg)
 
 在 `docker run` 命令中使用 `--network container:别的容器ID或名称` 指定使用该模式。
 
@@ -251,7 +251,7 @@ docker run -it --network container:ubuntu-1 --name ubuntu-2 ubuntu /bin/bash
 
 进入到两个容器查看 IP，可以看到两个容器的 IP 是一样的。
 
-![](./images/20240225153520.03dec5fb.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225153520.03dec5fb.jpg)
 
 **注意，此时如果停掉容器1，那么容器2的网络也没有了，容器2就无法通信了，因为容器2是依赖容器1的。**
 
@@ -270,11 +270,11 @@ docker network create doubi-network
 
 创建完网络，可以通过 `docker network ls` 查看到存在的网络：
 
-![](./images/20240225221336.367df152.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225221336.367df152.jpg)
 
 查看宿主机的网络，发现多了一个网络接口：
 
-![](./images/20240225222151.3dabe340.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225222151.3dabe340.jpg)
 
 **这里需要注意，我们创建了一个新的网络，也是桥接模式的，但是它是一个新的桥接网络，和docker0是独立开的，他们可以有不同的配置和属性，从上面也可以看到，他们是不同的网段的。**
 
@@ -306,7 +306,7 @@ docker network connect doubi-network ubuntu-1
 
 此时查看 `ubuntu-1` 和 `ubuntu-2` 容器的网络，我这里 `ubuntu-1` 容器的 IP 是 `172.19.0.2`，`ubuntu-2` 容器的 IP 是 `172.19.0.3` 。
 
-![](./images/20240225222541.c7b5c923.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225222541.c7b5c923.jpg)
 
 此时进入到 `ubuntu-1` ，肯定是可以通过命令 `ping 172.19.0.3` 来 ping 通 `ubuntu-2` 容器的。
 
@@ -314,7 +314,7 @@ docker network connect doubi-network ubuntu-1
 
 直接在容器 `ubuntu-1` 中执行命令 `ping ubuntu-2` ，发现可以 ping 通 `ubuntu-2` 容器 。
 
-![](./images/20240225222843.ae5f39bf.jpg)
+![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240225222843.ae5f39bf.jpg)
 
 通过自定义网络，可以实现通过服务名（容器名称）来实现容器之间的通信。
 

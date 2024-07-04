@@ -42,21 +42,31 @@ const getImages = (p)=>{
  * @param {} p 
  */
 function readFileList(path, filesList, isDirectory) { //isFile 是否处理文件夹
+  let menu = {
+    text: path.split('/')[path.split('/').length - 2],
+    collapsed: false,
+    items: []
+  };
+  if(!isDirectory){
+    filesList.push(menu);
+  }
   var files = fs.readdirSync(path);
   files.forEach(function (itm, index) {
       var stat = fs.statSync(path + itm);
       if (stat.isDirectory() && isDirectory) {
       //递归读取文件
-        readFileList(path + itm + "/", filesList)
+        readFileList(path + itm + "/", filesList, false)
       } else {
           var obj = {};//定义一个对象存放文件的路径和名字
           obj.path = path;//路径
           obj.filename = itm//名字
           if(!stat.isDirectory()){ //如果是文件就不加列表展示
-            filesList.push(obj);
+            menu.items.push({
+              'text': obj.filename.substr(0, obj.filename.lastIndexOf('.')),
+              'link': "/docs/" + menu.text + '/' + obj.filename,
+            });
           }
       }
-
   })
 }
 
@@ -73,9 +83,10 @@ const handleRouteList = function (lists){
 const getFilesList = function() {
   let lists = [];
   let routerList = [];
-  readFileList('./src/docs/docker/', lists, false);
-  routerList = handleRouteList(lists);
-  console.log(routerList);
+  readFileList('./src/docs/mysql/', lists, true);
+  // routerList = handleRouteList(lists);
+  console.log(lists);
+
   // // 下载图片
   // lists.forEach((file)=>{
   //   getImages( file );
