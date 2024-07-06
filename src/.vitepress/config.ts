@@ -9,6 +9,7 @@ export default defineConfig({
   assetsDir: 'stydocs',
   outDir: 'stydocs',
   themeConfig: {
+    outline: 3,
     // siteTitle: false,
     // https://vitepress.dev/reference/default-theme-config
     nav: [
