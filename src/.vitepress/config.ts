@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-
+import LinuxRte from "./linuxRoute"
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "",
@@ -374,12 +374,7 @@ export default defineConfig({
       {
         text: "linux",
         collapsed: true,
-        items: [
-          {
-            text: "index",
-            link: "/docs/linux/index.md",
-          },
-        ],
+        items: LinuxRte
       },
       {
         text: "mysql基础",

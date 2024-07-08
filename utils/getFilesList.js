@@ -83,7 +83,7 @@ const handleRouteList = function (lists){
 const getFilesList = function() {
   let lists = [];
   let routerList = [];
-  readFileList('./src/docs/mysql/', lists, true);
+  readFileList('./src/docs/tutorial-basis/', lists, true);
   // routerList = handleRouteList(lists);
   console.log(lists);
 
