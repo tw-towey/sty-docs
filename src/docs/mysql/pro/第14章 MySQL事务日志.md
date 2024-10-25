@@ -31,7 +31,7 @@ InnoDB存储引擎是以页为单位来管理存储空间的。在真正访问�
 
 InnoDB引擎的事务采用了WAL技术（Write-Ahead Logging )，这种技术的思想就是先写日志，再写磁盘，只有日志写入成功，才算事务提交成功，这里的日志就是redo log。当发生宕机且数据未刷到磁盘的时候，可以通i过redo log来恢复，保证ACID中的D，  
 这就是redo log的作用。  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/003bfb08afcc4028839aad4d789e4b53.png)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/003bfb08afcc4028839aad4d789e4b53.png)
 
 #### 1.2 REDO日志的好处、特点
 
@@ -55,7 +55,7 @@ Redo log可以简单分为以下两个部分：
 
 在服务器启动时就向操作系统申请了一大片称之为redo log buffer的连续内存空间，翻译成中文就是redo日志缓冲区。这片内存空间被划分成若干个连续的redo log block。一个redo log block占用512字节大小
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/97eb83892ee649949fccb6f21c0390c1.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/97eb83892ee649949fccb6f21c0390c1.png)  
 参数设置：innodb\_log\_buffer\_size：  
 redo log buffer 大小，默认 16M ，最大值是4096M，最小值为1M。
 
@@ -72,13 +72,13 @@ redo log buffer 大小，默认 16M ，最大值是4096M，最小值为1M。
 
 - **二、重做日志文件 (redo log file) ，保存在硬盘中，是持久的。**  
     REDO日志文件如图所示，其中的ib\_logfile0和ib\_logfile1即为REDO日志  
-    ![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/0cae9c9c037e45c4a60538e3af408e0e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)  
-    ![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/f44194dfa4e14d0ab626516c7702facf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)
+    ![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/0cae9c9c037e45c4a60538e3af408e0e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)  
+    ![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/f44194dfa4e14d0ab626516c7702facf.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)
 
 #### 1.4 redo的整体流程
 
 以一个更新事务为例，redo log 流转过程，如下图所示：  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/16e56507fc2b45ea92d0c4b0c1abebe7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/16e56507fc2b45ea92d0c4b0c1abebe7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
 第1步：先将原始数据从磁盘中读入内存中来，修改数据的内存拷贝  
 第2步：生成一条重做日志并写入redo log buffer，记录的是数据被修改后的值  
 第3步：当事务commit时，将redo log buffer中的内容刷新到 redo log file，对 redo log file采用追加写的方式  
@@ -91,7 +91,7 @@ redo log buffer 大小，默认 16M ，最大值是4096M，最小值为1M。
 
 redo log的写入并不是直接写入磁盘的，InnoDB引擎会在写redo log的时候先写redo log buffer，之后以 一  
 定的频率刷到真正的redo log file 中。这里的一定频率怎么看待呢？这就是我们要说的刷盘策略。  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/8190c9a675234a6c887cdac47322b3ab.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/8190c9a675234a6c887cdac47322b3ab.png)  
 注意，redo log buffer刷盘到redo log file的过程并不是真正的刷到磁盘中去，只是刷入到 文件系统缓存（page cache）中去（这是现代操作系统为了提高文件写入效率做的一个优化），真正的写入会交给系统自己来决定（比如page cache足够大了）。那么对于InnoDB来说就存在一个问题，如果交给系统来同步，同样如果系统宕机，那么数据也丢失了（虽然整个系统宕机的概率还是比较小的）。  
 针对这种情况，InnoDB给出innodb\_flush\_log\_at\_trx\_commit 参数，该参数控制 commit提交事务时，如何将 redo log buffer 中的日志刷新到 redo log file 中。它支持三种策略：
 
@@ -111,9 +111,9 @@ show variables like 'innodb_flush_log_at_trx_commit';
 ```
 
 另外，InnoDB存储引擎有一个后台线程，每隔1秒，就会把 redo log buffer 中的内容写到文件系统缓存( page cache ) ，然后调用刷盘操作。  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/f4626ad58ce5418cbbfcb8084355190c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_17,color_FFFFFF,t_70,g_se,x_16)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/f4626ad58ce5418cbbfcb8084355190c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_17,color_FFFFFF,t_70,g_se,x_16)  
 也就是说，一个没有提交事务的redo log 记录，也可能会刷盘。因为在事务执行过程redo log记录是会写入redo log buffer中，这些redo log记录会被后台线程刷盘。  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/4ace4f0569d84b749a5d00ff3b103163.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/4ace4f0569d84b749a5d00ff3b103163.png)  
 除了后台线程每秒1次的轮询操作，还有一种情况，当redoa log buffer占用的空间即将达到innodb\_log\_buffer\_size(这个参数默认是16M）的一半的时候，后台线程会主动刷盘。
 
 #### 1.6 不同刷盘策略演示
@@ -122,7 +122,7 @@ show variables like 'innodb_flush_log_at_trx_commit';
 
 **innodb\_flush\_log\_at\_trx\_commit=1**
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1f782247f2ec4995b1cf7d72f38fd8f3.png)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1f782247f2ec4995b1cf7d72f38fd8f3.png)
 
 > 小结: innodb\_flush\_log\_at\_trx\_commit=1  
 > 为1时，只要事务提交成功,redo log记录就一定在硬盘里，不会有任何数据丢失。  
@@ -130,9 +130,9 @@ show variables like 'innodb_flush_log_at_trx_commit';
 > 建议使用默认值，虽然操作系统宕机的概率理论小于数据库宕机的概率，但是一般既然使用了事务，那么数据的安全相对来说更重要些
 
 **innodb\_flush\_log\_at\_trx\_commit=2**  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/e2ecdf0c50f640bd81ea2879ae3e3b1b.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/e2ecdf0c50f640bd81ea2879ae3e3b1b.png)  
 **innodb\_flush\_log\_at\_trx\_commit=0**  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1313872b421f4701946ff2d40afb857c.png)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1313872b421f4701946ff2d40afb857c.png)
 
 > 小结: innodb\_flush\_log\_at\_trx\_commit=o  
 > 为0时,master thread中每1秒进行一次重做日志的fsync操作，因此实例crash最多丢失1秒钟内的事务。( master thread是负责将缓冲池中的数据异步刷新到磁盘，保证数据的一致性)  
@@ -197,7 +197,7 @@ SHOW VARIABLES LIKE 'innodb_flush_log_at_trx_commit';
 CALL p_load(30000); #45.173 sec
 ```
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/3dddf7396508496f834c21453cde9c4b.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/3dddf7396508496f834c21453cde9c4b.png)  
 而针对上述存储过程，为了提高事务的提交性能，应该在将3万行记录插入表后进行一次的COMMIT操作，而不是每插入一条记录后进行一次COMMIT操作。这样做的好处是可以使事务方法在rollback时回滚到事务最开始的确定状态。
 
 > 虽然用户可以通过设置参数innodb\_flush\_log\_at\_trx\_commit为0或2来提高事务提交的性能，但需清楚，这种设置方法丧失了事务的ACID特性。
@@ -208,20 +208,20 @@ CALL p_load(30000); #45.173 sec
 
 MySQL把对底层页面中的一次原子访问的过程称之为一个Mini-Transaction，简称mtr，比如，向某个索引对应的B+树中插入一条记录的过程就是一个Nini-Transaction。一个所谓的mtr可以包含一组redo日志，在进行崩溃恢复时这一组redo日志作为一个不可分割的整体。  
 一个事务可以包含若干条语句，每一条语句其实是由若干个mtr组成，每一个mtr又可以包含若干条redo日志，画个图表示它们的关系就是这样:  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/419dc307d0ed49a6b775b8f6a98f5cdb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_10,color_FFFFFF,t_70,g_se,x_16)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/419dc307d0ed49a6b775b8f6a98f5cdb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_10,color_FFFFFF,t_70,g_se,x_16)
 
 ##### 2\. redo 日志写入log buffer
 
 向log buffer中写入redo日志的过程是顺序的，也就是先往前边的block中写，当该block的空闲空间用完之后再往下一个block中写。当想往log buffer中写入redo日志时，第一个遇到的问题就是应该写在哪个block的哪个偏移量处，所以InnoDB的设计者特意提供了一个称之为buf\_free的全局变量，该变量指明后续写入的redo日志应该写入到 log buffer中的哪个位置，如图所示:  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1decdfb8000f4d66b45b3de32fceddd8.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1decdfb8000f4d66b45b3de32fceddd8.png)  
 一个mtr执行过程中可能产生若干条redo日志，这些redo日志是一个不可分割的组，所以其实并不是每生成一条redo日志，就将其插入到log buffer中，而是每个mtr运行过程中产生的日志先暂时存到一个地方，当该mtr结束的时候，将过程中产生的一组redo日志再全部复制到log bulffer中。假设有两个名为T1、T2的事务，每个事务都包含2个mtr，我们给这几个mtr命名一下;  
 事务T1的两个mtr分别称为mtr\_T1\_1和mtr\_T1\_2  
 事务T2的两个mtr分别称为mtr\_T2\_1和mtr\_T2\_2
 
 每个mtr都会产生一组redo日志，用示意图来描述一下这些mtr产生的日志情况:  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/cc3c45c7fd274507b852e8d7aeb1af38.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/cc3c45c7fd274507b852e8d7aeb1af38.png)  
 不同的事务可能是并发执行的，所以T1、T2之间的mtr可能是交替执行的。每当一个mtr执行完成时，伴随该mtr生成的一组redo日志就需要被复制到log buffer中，也就是说不同事务的mtr可能是交替写入log buffer的，我们画个示意图(为了美观，把一个mtr中产生的所有的redo日志当作一个整体来画):  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/b993796a28f14a15b8706dfe3fa6c0f9.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/b993796a28f14a15b8706dfe3fa6c0f9.png)  
 有的mtr产生的redo日志量非常大，比如1mtr\_t1\_2产生的redo日志占用空间比较大，占用了3个block来存储。
 
 #### 3\. redo log block的结构图
@@ -231,9 +231,9 @@ MySQL把对底层页面中的一次原子访问的过程称之为一个Mini-Tran
 > **为什么一个block设计成512字节?**  
 > 这个和磁盘的扇区有关，机械磁盘默认的扇区就是512字节，如果要写入的数据大于512字节，那么要写入的扇区肯定不止一个，这时就要涉及到盘片的转动，找到下一个扇区，假设现在需要写入两个扇区A和B，如果扇区A写入成功，而扇区B写入失败，那么就会出现非原子性的写入，而如果每次只写入和扇区的大小一样的512字节,那么每次的写入都是原子性的
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/72e5f7f7f0e5405fb368a359ef48ce7b.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/72e5f7f7f0e5405fb368a359ef48ce7b.png)  
 真正的redo日志都是存储到占用496字节大小的log block body中，图中的log block header和log block trailer存储的是一些管理信息。我们来看看这些所谓的管理信息都有什么  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/4c8fc9606d064267a389a972c65b43c6.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/4c8fc9606d064267a389a972c65b43c6.png)  
 **log block header的属性分别如下:**
 
 - LOG\_BLOCK\_HDR\_NO : log buffer是由log block组成，在内部log buffer就好似一个数组，因此LOG\_BLOCK\_HDR\_NO用来标记这个数组中的位置。其是递增并且循环使用的，占用4个字节，但是由于第—位用来判新是否是flush bit，所以最大的值为2G。
@@ -293,7 +293,7 @@ innodb_log_file_size=200M
 ##### 2\. 日志文件组
 
 从上边的描述中可以看到，磁盘上的redo日志文件不只一个，而是以一个日志文件组的形式出现的。这些文件以ib\_logfile\[数字\]（数字可以是日、1、2…）)的形式进行命名，每个的redo日志文件大小都是一样的。在将redo日志写入日志文件组时，是从ib\_logfile0开始写，如果ib\_logfile0写满了，就接着ib\_logfile1写。同理, ib\_logf1le1写满了就去写ib\_logfile2，依此类准。如果写到最后一个文件该咋办?那就重新转到ib\_logfile0继续写，所以整个过程如下图所示:  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/78ba8c7cec7642d1a6bd161686a289a0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/78ba8c7cec7642d1a6bd161686a289a0.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
 总共的redo日志文件大小其实就是: innodb\_log\_file\_size \* innodb\_log\_files\_in\_group  
 采用循环使用的方式向redo日志文件组里写数据的话，会导致后写入的redo日志在盖掉前边写的redo日志?当然!所以InnoDB的设计者提出了checkpoint的概念。
 
@@ -305,15 +305,15 @@ innodb_log_file_size=200M
 - checkpoint是当前要擦除的位置，也是往后推移
 
 每次刷盘 redo log记录到日志文件组中，write pos位置就会后移更新。每次MySQL加载日志文件组恢复数据时，会清空加载过的redo log记录，并把 checkpoint后移更新。write pos和checkpoint之间的还空着的部分可以用来写入新的redo log记录。  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/43af4c7cb51e453397716905532bf7c9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_10,color_FFFFFF,t_70,g_se,x_16)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/43af4c7cb51e453397716905532bf7c9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_10,color_FFFFFF,t_70,g_se,x_16)  
 如果 write pos 追上 checkpoint ，表示日志文件组满了，这时候不能再写入新的 redo log记录，MySQL 得停下来，清空一些记录，把 checkpoint 推进一下  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/85a2fc63dff8411eb7b7c83d09e37871.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/85a2fc63dff8411eb7b7c83d09e37871.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_14,color_FFFFFF,t_70,g_se,x_16)
 
 #### 1.9 redo log小结
 
 相信大家都知道redo log的作用和它的刷盘时机、存储形式:  
 InnoDB 的更新操作采用的是Write Ahead Log (预先日志持久化)策略，即先写日志，再写入磁盘  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/f0062efe5666483f981cddba8dfbbc4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_15,color_FFFFFF,t_70,g_se,x_16)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/f0062efe5666483f981cddba8dfbbc4d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_15,color_FFFFFF,t_70,g_se,x_16)
 
 # 2\. Undo日志
 
@@ -442,9 +442,9 @@ undo log相关参数一般很少改动。
 - 若在9之后系统宕机，内存映射中变更的数据还来不及刷回磁盘，那么系统恢复之后，可以根据redo log把数据刷回磁盘
 
 只有Buffer Pool的流程：  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/60c58d27b6214d2abdb5e687ab856a81.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/60c58d27b6214d2abdb5e687ab856a81.png)  
 有了Redo Log和Undo Log之后：  
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/b7c937aa356843169bf1737c5fd15951.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/b7c937aa356843169bf1737c5fd15951.png)  
 在更新Buffer Pool中的数据之前，需要先将该数据事务开始之前的状态写入Undo Log中。假设更新到一半出错了，就可以通过Undo Log来回滚到事务开始前。
 
 ##### 2\. 详细生成过程
@@ -454,7 +454,7 @@ undo log相关参数一般很少改动。
 - DB\_ROW\_ID:如果没有为表显式的定义主键，并且表中也没有定义唯一索引，那么InnoDB会自动为表添加一个row\_id的隐藏列作为主键
 - DB\_TRX\_ID:每个事务都会分配一个事务ID，当对某条记录发生变更时，就会将这个事务的事务ID写入trx\_id中
 - DB\_ROLL\_PTR;回滚指针，本质上就是指句undo log的指针  
-    ![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/f6010fb0701d42b29c6f71fa10615217.png)  
+    ![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/f6010fb0701d42b29c6f71fa10615217.png)  
     `**当我们执行INSERT时：**`
 
 ```sql
@@ -462,7 +462,7 @@ begin;
 INSERT INTO user (name) VALUES ("tom");
 ```
 
-插入的数据都会生成一条insert undo log，并且数据的回滚指针会指向它。undo log会记录undo log的序号、插入主键的列和值…。那么在进行rollback的时候，通过主键直接把对应的数据删除即可![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/2f25dc3911914faa83b9e2d0d61fd3c9.png)  
+插入的数据都会生成一条insert undo log，并且数据的回滚指针会指向它。undo log会记录undo log的序号、插入主键的列和值…。那么在进行rollback的时候，通过主键直接把对应的数据删除即可![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/2f25dc3911914faa83b9e2d0d61fd3c9.png)  
 `**当我们执行UPDATE时：**`  
 对于更新的操作会产生update undo log，并且会分更新主键的和不更新主键的，假设现在执行:
 
@@ -470,7 +470,7 @@ INSERT INTO user (name) VALUES ("tom");
 UPDATE user SET name= "Sun" WHERE id=1;
 ```
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/15a47ca69e004797ba007b0b9f79237c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/15a47ca69e004797ba007b0b9f79237c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5YeG5Zu-54G15aWW5b6X5Li7,size_19,color_FFFFFF,t_70,g_se,x_16)  
 这时会把老的记录写入新的undo log，让回滚指针指向新的undo log，它的undo no是1，并且新的undo log会指向老的undo log (undo no=0) .  
 假设现在执行:
 
@@ -478,7 +478,7 @@ UPDATE user SET name= "Sun" WHERE id=1;
 UPDATE user SET id=2 WHERE id=1;
 ```
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/2b00afcdd9434aa6a0d56a80581aea76.png)  
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/2b00afcdd9434aa6a0d56a80581aea76.png)  
 对于更新主键的操作，会先把原来的数据deletemark标识打开，这时并没有真正的删除数据，真正的删除会交给清理线程去判断，然后在后面插入一条新的数据，新的数据也会产生undo log，并且undo log的序号会递增
 
 可以发现每次对数据的变更都会产生一个undo log，当一条记录被变更多次时，那么就会产生多条undo log,undo log记录的是变更前的日志，并且每个undo log的序号是递增的，那么当要回滚的时候，按照序号依次向前推，就可以找到原始数据
@@ -505,7 +505,7 @@ UPDATE user SET id=2 WHERE id=1;
 
 #### 2.6 小结
 
-![请添加图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/7680e20d39314fcc97cd5692090fca85.png)
+![请添加图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/7680e20d39314fcc97cd5692090fca85.png)
 
 - undo log是逻辑日志，对事务回滚时，只是将数据库逻辑地恢复到原来的样子
 - redo log是物理日志，记录的是数据页的物理变化，undo log不是redo log的逆过程

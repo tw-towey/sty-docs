@@ -4,7 +4,7 @@
 
 ## 6.1 操作流程
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/2024012223300.fb3b0021.png)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/2024012223300.fb3b0021.png)
 
 首先通过客户端发送命令给 `Docker daemon` 守护进程， `Docker daemon` 会检查本地是否有镜像，如果没有就从远程仓库 `Registry` 拉取镜像，例如拉取 Redis 镜像，拉取到本地后，运行镜像成为 `Container` 容器，就是一个运行的 Redis 了，每个容器之间是相互隔离的，就像一个个的集装箱，所以 Docker 的图标就是一个鲸鱼上面有很多的集装箱。
 
@@ -19,7 +19,7 @@
 
 我们前面在拉取 redis 镜像的时候，会发现下载的过程如下：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240130231334.15d8edbd.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240130231334.15d8edbd.jpg)
 
 会看到镜像是一部分一部分的被下载。
 
@@ -27,7 +27,7 @@
 
   
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240131214700.470a8841.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240131214700.470a8841.jpg)
 
 bootfs（boot file system）是 Docker 镜像的最底层的一层，主要包含引导程序（bootloader）和内核（Kernel），这一层与标准的 Linux/Unix 系统是一样的。当计算机启动时，它会首先加载这一层，然后由引导程序加载内核到内存中。之后，内存的使用权会从这一层转移到内核，然后这一层就会被卸载，释放出存储空间。
 

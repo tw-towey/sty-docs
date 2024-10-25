@@ -18,7 +18,7 @@ InnoDB将数据划分为若干个页，InnoDB中页的大小默认为`16KB`。
 
 ##### 1.3 页的上层结构
 
-![image-20220330183814954](http://p4ui.toweydoc.tech:20080/images/stydocs/6f8d68366c7255515cde333112b2167c.png)
+![image-20220330183814954](http://p6ui.toweydoc.tech:20080/images/stydocs/6f8d68366c7255515cde333112b2167c.png)
 
 区（Extent）是比页大一级的存储结构，在InnoDB存储引擎中，一个区会分配`64个连续的页`。因为InnoDB中的页大小默认是16KB，所以一个区的大小是64\*16KB=`1MB`。
 
@@ -98,11 +98,11 @@ User Records中的这些记录按照`指定的行格式`一条一条摆在User R
 
 InnoDB规定的最小记录与最大记录这两条记录的构造十分简单，都是由5字节大小的记录头信息和8字节大小的一个固定的部分组成的。
 
-<!-- ![202203301913664](http://p4ui.toweydoc.tech:20080/images/stydocs/202203301913664.png) -->
+<!-- ![202203301913664](http://p6ui.toweydoc.tech:20080/images/stydocs/202203301913664.png) -->
 
 这两条记录`不是我们自己定义的记录`，所以它们并不存放在页的User Records部分，他们被单独放在一个称为Infimum + Supremum的部分
 
-![image-20220330191446070](http://p4ui.toweydoc.tech:20080/images/stydocs/8abd257969497f272481e44b4f4438de.png)
+![image-20220330191446070](http://p6ui.toweydoc.tech:20080/images/stydocs/8abd257969497f272481e44b4f4438de.png)
 
 ##### 2.3 第3部分：页目录和页面头部
 
@@ -125,7 +125,7 @@ InnoDB规定的最小记录与最大记录这两条记录的构造十分简单�
 
 现在的page\_demo表中正常的记录共有6条，InnoDB会把它们分成两组，第一组中只有一个最小记录，第二组中是剩余的5条记录。如下图：
 
-<!-- ![202203301921631](http://p4ui.toweydoc.tech:20080/images/stydocs/202203301921631.png) -->
+<!-- ![202203301921631](http://p6ui.toweydoc.tech:20080/images/stydocs/202203301921631.png) -->
 
 从这个图中我们需要注意这么几点：
 
@@ -136,7 +136,7 @@ InnoDB规定的最小记录与最大记录这两条记录的构造十分简单�
 
 用箭头指向的方式替代数字，这样更易于我们理解，修改后如下
 
-![image-20220330192413776](http://p4ui.toweydoc.tech:20080/images/stydocs/ddf5c5dc38b77077101458cc29d139ef.png)
+![image-20220330192413776](http://p6ui.toweydoc.tech:20080/images/stydocs/ddf5c5dc38b77077101458cc29d139ef.png)
 
 **为什么最小记录的n\_owned值为1，而最大记录的n\_owned值为5呢？**
 
@@ -185,7 +185,7 @@ ALTER TABLE 表名 ROW_FORMAT=行格式名称
 
 在MySQL 5.1版本中，默认设置为Compact行格式。一条完整的记录其实可以被分为记录的额外信息和记录的真实数据两大部分。
 
-![image-20220330193949517](http://p4ui.toweydoc.tech:20080/images/stydocs/4992ac8dce454e0f602e260095a4e4dc.png)
+![image-20220330193949517](http://p6ui.toweydoc.tech:20080/images/stydocs/4992ac8dce454e0f602e260095a4e4dc.png)
 
 ###### 3.2.1 变长字段长度列表
 
@@ -206,7 +206,7 @@ Compact行格式会把可以为NULL的列统一管理起来，存在一个标记
 
 ###### 3.2.3 记录头信息（5字节）
 
-![image-20220330194534127](http://p4ui.toweydoc.tech:20080/images/stydocs/4778f98657bf7671d72601f989342a31.png)
+![image-20220330194534127](http://p6ui.toweydoc.tech:20080/images/stydocs/4778f98657bf7671d72601f989342a31.png)
 
 | 名称 | 大小（单位：bit） | 描述 |
 | --- | --- | --- |
@@ -443,13 +443,13 @@ InnoDB从磁盘中读取数据 `最小单位` 是数据页。而你想得到的 
 
 如果该数据存在于内存中，基本上执行时间在 1ms 左右，效率还是很高的。
 
-![image-20220621135638283](http://p4ui.toweydoc.tech:20080/images/stydocs/image-20220621135638283.png)
+![image-20220621135638283](http://p6ui.toweydoc.tech:20080/images/stydocs/image-20220621135638283.png)
 
 **2. 随机读取**
 
 如果数据没有在内存中，就需要在磁盘上对该页进行查找，整体时间预估在_1ems 左右，这10ms 中有6ms是磁盘的实际繁忙时间（包括了寻道和半圈旋转时间），有3ms是对可能发生的排队时间的估计值，另外还有1ms的传输时间，将页从磁盘服务器缓冲区传输到数据库缓冲区中。这10ms看起来很快，但实际上对于数据库来说消耗的时间已经非常长了，因为这还只是一个页的读取时间。
 
-![image-20220621135737422](http://p4ui.toweydoc.tech:20080/images/stydocs/image-20220621135737422.png)
+![image-20220621135737422](http://p6ui.toweydoc.tech:20080/images/stydocs/image-20220621135737422.png)
 
 
 **3. 顺序读取**

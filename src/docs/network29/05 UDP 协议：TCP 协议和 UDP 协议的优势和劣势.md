@@ -16,7 +16,7 @@ UDP 在数据传输、网络控制、音视频、Web 技术中，都有很重要
 
 UDP 的设计目标就是在允许用户直接发送报文的情况下，最大限度地简化应用的设计。下图是 UDP 的报文格式。
 
-![图片1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCCfQeAGOF3AACK2Gf5t6I606.png)
+![图片1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCCfQeAGOF3AACK2Gf5t6I606.png)
 
 你可以看到，UDP 的报文非常简化，只有 5 个部分。
 

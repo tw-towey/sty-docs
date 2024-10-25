@@ -18,7 +18,7 @@ Nodejs 中的 stream 模块提供了用于实现流接口的对象。
 
 想象一个场景，我们正在通过网络观看一部高清电影，它的大小是 1GB，客户端上大体流程就是：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/2ce5f4d9fa474cc9b6105ef99250865d.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/2ce5f4d9fa474cc9b6105ef99250865d.png)
 
 1. 首先应用程序会从服务器读取 1GB 的内容
 2. 然后通过网络传输到客户端
@@ -32,7 +32,7 @@ Nodejs 中的 stream 模块提供了用于实现流接口的对象。
 
 因此可以采用流的方式处理数据：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/a964277e73ef470fa73cb8005d4381ca.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/a964277e73ef470fa73cb8005d4381ca.png)
 
 1. 可以先把资源文件像水一样，一点一点的抽到一个池子里
 2. 然后再去选择需要的方式来抽干池子里的水
@@ -41,7 +41,7 @@ Nodejs 中的 stream 模块提供了用于实现流接口的对象。
 
 除此之外，流操作还可以配合管道对分段的数据进行需求的加工。
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/4e5af19922804538ab190a5082608b99.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/4e5af19922804538ab190a5082608b99.png)
 
 例如，原始的数据是字符串，可以利用管道将它传给能够实现数据转换为 Buffer 的单元，还可以传给执行压缩操作的单元。只要类型支持，语法正常，就可以一直往后传递处理，直到最后使用数据。
 
@@ -155,7 +155,7 @@ Nodejs 中**标准输出**本身就是一个可写流，所以最终代码执行
 
 下面通过图示了解主要逻辑步骤：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/88aa677a2fa8443087add0d0e85b29b6.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/88aa677a2fa8443087add0d0e85b29b6.png)
 
 - 先创建一个 Readable 对象的实现
 - 然后调用 `_read()` 方法读取底层数据

@@ -64,7 +64,7 @@ begin()
 
 ```
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/d4f9a4b8dff34490b603935d90b906f8.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/d4f9a4b8dff34490b603935d90b906f8.png)
 
 write 的执行流程设计三个角色：数据生产者、可写流、文件。
 

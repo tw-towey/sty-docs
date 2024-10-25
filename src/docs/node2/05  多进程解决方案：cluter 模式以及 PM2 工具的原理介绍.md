@@ -4,7 +4,7 @@
 
 在[《01 | 事件循环：高性能到底是如何做到的？》](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=694#/detail/pc?id=6783)中我们分析了 Node.js 主线程是单线程的，如果我们使用 node app.js 方式运行，就启动了一个进程，只能在**一个 CPU 中进行运算**，无法应用服务器的多核 CPU，因此我们需要寻求一些解决方案。你能想到的解决方案肯定是**多进程分发策略**，即主进程接收所有请求，然后通过一定的**负载均衡策略**分发到不同的 Node.js 子进程中。如图 1 的方案所示：
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBQKV2ABtnsAAAuF7ZUkEQ818.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBQKV2ABtnsAAAuF7ZUkEQ818.png)
 
 这一方案有 2 个不同的实现：
 
@@ -275,7 +275,7 @@ $ pm2 list
 
 可以看到如图 2 所示的结果，代表运行成功了。
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBQKZeAM-MIAAB0_RHaw1E022.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBQKZeAM-MIAAB0_RHaw1E022.png)
 
 图 2 pm2 list 运行结果
 
@@ -324,7 +324,7 @@ $ pm2 start pm2.config.js --env production
 
 首先我们来看下进程创建的方式，整体的流程如图 3 所示。
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBQKaWAHrR1AAKhg2CW1Z0319.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBQKaWAHrR1AAKhg2CW1Z0319.png)
 
 图 3 PM2 源码多进程创建方式
 

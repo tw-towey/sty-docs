@@ -116,7 +116,7 @@ main()
 
 `bind` 默认只绑定了本地 IP `127.0.0.1`，所以外部主机无法连接，Linux 可以通过 `ifconfig` 命令查看所有网卡地址：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/b2fd11b594d641c993ca9b01cfcd771c.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/b2fd11b594d641c993ca9b01cfcd771c.png)
 
 以我的服务器为例，可以这样配置以允许外部主机访问：
 
@@ -183,7 +183,7 @@ const redis = new Redis({
 
 例如：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/bdb87fabc8a643c69fb0134f1c5dcafb.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/bdb87fabc8a643c69fb0134f1c5dcafb.png)
 
 所以实际使用时建议为 Redis 服务创建单独的用户，用此用户启动 Redis 服务器，并禁止远程登录，设置 Redis 密码等。
 

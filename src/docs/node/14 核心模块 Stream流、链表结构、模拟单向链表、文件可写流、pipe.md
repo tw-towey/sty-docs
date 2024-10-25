@@ -32,7 +32,7 @@
 
 ## 单向链表结构
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/0d6cc379229e4abcb1252e3dcf34dd58.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/0d6cc379229e4abcb1252e3dcf34dd58.png)
 
 链表结构其实就是一个容器，里面存放着三个物件：head、null 以及中间的 node 节点。
 

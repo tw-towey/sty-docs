@@ -86,7 +86,7 @@ if(process.env.Serverless) {
 
 在代码上传完成以后，我们可以看到类似图 1 所示的结果。
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw--AIb5jAAEa4Dzd7Bs282.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw--AIb5jAAEa4Dzd7Bs282.png)
 
 图 1 Serverless 服务
 
@@ -94,7 +94,7 @@ if(process.env.Serverless) {
 
 打开地址后，我们就可以看到我们熟悉的框架响应数据了，如下图 2 所示。
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw_aAEDyzAAAmkVZjuso799.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw_aAEDyzAAAmkVZjuso799.png)
 
 图 2 KOA 框架响应
 
@@ -121,7 +121,7 @@ module.exports = Page;
 
 代码逻辑比较简单，获取 name 字段，然后将 name 返回给到 API 调用方。因此当访问 page/index?name=lagou-nodejs 后，会响应如下数据，如图 3 示。
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw_6AX42UAAAzwZkU7Fc325.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCHw_6AX42UAAAzwZkU7Fc325.png)
 
 图 3 KOA 正常响应数据
 

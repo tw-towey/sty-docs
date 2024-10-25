@@ -108,7 +108,7 @@ Promise.resolve().then(() => {
 
 ## Nodejs 事件循环机制
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/195038958ae14dc882c3634ccfc45f61.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/195038958ae14dc882c3634ccfc45f61.png)
 
 在浏览器环境下有两个队列：宏任务队列和微任务队列。
 

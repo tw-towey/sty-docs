@@ -30,7 +30,7 @@ Stream 流操作并非 Nodejs 独创，它本身已经存在很多年了。
 
 ## Buffer
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/00db84f8772e4b32a2679a6a177cd40b.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/00db84f8772e4b32a2679a6a177cd40b.png)
 
 程序运行就会进行二进制的数据传输，而这个传输一般都是由 from 到 to 的过程，即数据的生产者和数据的消费者，中间就会使用流配合管道进行连接。
 

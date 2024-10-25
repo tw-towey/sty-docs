@@ -100,7 +100,7 @@ md5(1M数据)
 
 下面是拉勾的 HTTPS 证书，你可以做个对比学习：
 
-![图片1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWC_QZmAFbERAAIwzmSMbnU222.png)
+![图片1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWC_QZmAFbERAAIwzmSMbnU222.png)
 
 有一些关键信息，比如签名和公钥，虽然没有在这个图片中体现，但这些信息也是在证书中的。
 
@@ -124,7 +124,7 @@ md5(1M数据)
 
 中间的是中间证书机构，它们自己的证书是由 Root CA 签名颁发的，同时它们向最底层的终端机构提供证书。
 
-![图片2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWC_QaOANc8OAAKdwCZGW4o807.png)
+![图片2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWC_QaOANc8OAAKdwCZGW4o807.png)
 
 根证书是自签名，中间证书是根证机构书签名，终端证书（比如拉勾网）是中间证书机构签名。这样就构成了一个信任链，并且也增加了犯罪的成本。犯罪分子如果想要冒充证书，那么它的证书就需要获得中间证书提供商的签名，而获得签名需要购买证书。犯罪分子就算购买了证书，也只能购买自己域名的证书，因此无法伪装成其他网站。**但要特别注意的是，如果犯罪分子设法在你的个人电脑上安装了它的根证书，那后果就严重了，它可以冒充成任何网站**。
 

@@ -266,4 +266,4 @@ show variables like 'character%';
 - 如果`创建数据库时`没有显式的指定字符集和比较规则，则该数据库`默认用服务器的`字符集和比较规则
 
 ##### **5.2请求到响应过程中字符集的变化**
-![8fd8247053bfbf20f0ece7e189606a24](http://p4ui.toweydoc.tech:20080/images/stydocs/8fd8247053bfbf20f0ece7e189606a24.png)
+![8fd8247053bfbf20f0ece7e189606a24](http://p6ui.toweydoc.tech:20080/images/stydocs/8fd8247053bfbf20f0ece7e189606a24.png)

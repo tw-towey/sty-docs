@@ -4,7 +4,7 @@
 
 本讲将会从表格 1 的这几个方面来讲解这两者之间的区别。
 
-![image.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBB0TyASaasAABtZvrLaXk828.png)
+![image.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBB0TyASaasAABtZvrLaXk828.png)
 
 ### 运行环境
 

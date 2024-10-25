@@ -176,13 +176,13 @@ http://127.0.0.1:4000/v1/normal
 
 **后台服务一般都有集群的概念**，无论是多机器部署，还是单机器（Node.js cluster 模式），具体我们画一个集群的架构例子，如图 1 所示。在进程分发的主节点 Nginx 和 Master 都可能会存在性能影响因素点，本讲核心是介绍 Node.js，因此我们主要看 cluster 模式的性能影响问题。
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBQK0GAZFfaAABsROVQ92Y096.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBQK0GAZFfaAABsROVQ92Y096.png)
 
 #### 1.多进程 cluster 模式
 
 在上一讲中我们详细地介绍了 cluster 模式，在实际应用过程中这种模式也是存在性能瓶颈问题的。我们在上一讲中讲到的 cluster 模式，如图 2 所示。
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBQK0mAAVVQAAB3dogpY-k967.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBQK0mAAVVQAAB3dogpY-k967.png)
 
 你会发现这种模式的主进程也就是上一讲中的**master 进程**会存在瓶颈，因为所有的请求都必须经过 master 进程进行分发，同时接收处理 worker 进程的返回。
 

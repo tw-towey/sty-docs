@@ -60,7 +60,7 @@ clinic bubbleprof --on-port "wrk http://127.0.0.1:3000/local-cache/no" -- node a
 
 我们先来看图 1 所示的结果。
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37a2AKhPmAAJeXJvA1Tg457.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37a2AKhPmAAJeXJvA1Tg457.png)
 
 图 1 clinicjs 无异常检测结果
 
@@ -68,7 +68,7 @@ clinic bubbleprof --on-port "wrk http://127.0.0.1:3000/local-cache/no" -- node a
 
 我们再来看一种异常的情况，如图 2 所示的结果。
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB37bmAOY3WAAKiAW23OY4348.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB37bmAOY3WAAKiAW23OY4348.png)
 
 图 2 clinicjs 异常检测结果
 
@@ -97,7 +97,7 @@ clinic doctor --on-port "wrk http://127.0.0.1:3000/local-cache/no" -- node app.j
 
 首先来整理一个流程图，来分析下我们应该如何实现这个功能。
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB37cOAdvHkAAJjWOy1L2Y825.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB37cOAdvHkAAJjWOy1L2Y825.png)
 
 图 3 自动化方案流程图
 
@@ -120,13 +120,13 @@ clinic doctor --on-port "wrk http://127.0.0.1:3000/local-cache/no" -- node app.j
 
 根据以上的流程，我们画一个逻辑执行过程来更清晰描述下这个过程。
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37cyAPGhrAAEXls5qfQY168.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37cyAPGhrAAEXls5qfQY168.png)
 
 图 4 自动化方案逻辑执行图
 
 上面的逻辑和流程图基本上是一个过程，**只是这里用函数和模块来表示了**，具体我们可以看下部分代码的实现，如图 5 所示，源码在[GitHub](https://github.com/love-flutter/nodejs-column?fileGuid=xxQTRXtVcqtHK6j8) 中的 bin/clinic\_test.js 文件中。
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB37dKAaCSYAALhCgAFm2U761.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB37dKAaCSYAALhCgAFm2U761.png)
 
 图 5 startTestLink 代码实现
 
@@ -152,7 +152,7 @@ exit
 
 接下来我们看下 parseResult 的方法实现，代码如图 6 所示。
 
-![Drawing 5.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB37eWAX1KsAAFcIAG2wp8914.png)
+![Drawing 5.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB37eWAX1KsAAFcIAG2wp8914.png)
 
 图 6 parseResult 代码实现
 
@@ -221,7 +221,7 @@ node clinic_test.js 
 
 从原来的分析来看也是这样的结果，因为我们对 cache/local 和 local-cache/yes 做了缓存优化，所以无任何异常问题，而 local-cache/no 存在性能问题，然后我们打开 .clinic/21097.clinic-doctor.html 这个文件，可以看到如图 7 所示的结果。
 
-![Drawing 6.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37e-APupPAAJ0RW3kNww550.png)
+![Drawing 6.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37e-APupPAAJ0RW3kNww550.png)
 
 图 7 local-cache/no 检测结果
 
@@ -234,7 +234,7 @@ clinic flame --on-port "wrk http://127.0.0.1:3000/local-cache/no" -- node app.js
 
 成功运行后，打开相应的 html 文件，可以看到如图 8 所示的结果。
 
-![Drawing 7.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37fiAX8tvAAJ_iWJXzkU653.png)
+![Drawing 7.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB37fiAX8tvAAJ_iWJXzkU653.png)
 
 图 8 clinic flame 运行结果
 

@@ -218,12 +218,12 @@ dp\[5\] = dp\[0\] + 5 元硬币 = 1
 - 如下图所示，第一种情况，dp\[5\] 可以直接通过 dp\[0\] 得到，值为 1。
     
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zBuAOaffAAB34BpuEyM913.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zBuAOaffAAB34BpuEyM913.png)
 
 - 如下图所示，第二种，dp\[5\] 可以通过 dp\[3\] 得到，值为 3。
     
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zCaAHlLsAAB8MadAE-U569.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zCaAHlLsAAB8MadAE-U569.png)
 
 此时可以发现，判断具体取哪个值时，就需要用到前面的递推关系了。
 
@@ -276,7 +276,7 @@ class Solution
 
 这里我已经将 DP 的思路整理成如下图中展示的 6 步。尽管我现在处理 DP 问题已经很熟练了，但有时候，碰到一些特别难处理的 DP 题目，依然会回到这 6 步分析法，一步一步踏踏实实地分析。
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zDKAQUFhAADATI1rcXE556.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zDKAQUFhAADATI1rcXE556.png)
 
 ### DP 的分类
 
@@ -458,7 +458,7 @@ Step 3. 在 x 和 y 这两个**子字符串**上继续从 Step 1 开始递归执
 
 解释：经过如下操作即可从 s1 得到 s2：
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zFWABT97AABr3D8VE1U754.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zFWABT97AABr3D8VE1U754.png)
 
 【**分析**】当拿到这个题目的时候，我们看到 true/false，可以联想到这应该是个 DP 题的信号。因为题目也没有要求输出具体怎么操作。
 
@@ -480,11 +480,11 @@ Step 3. 在 x 和 y 这两个**子字符串**上继续从 Step 1 开始递归执
 
 这说明我们最后一步找得不准！需要重新思考。如果 s1 是 s2 的扰乱字符串，那么在最后一步的时候，存在以下 2 种情况（判断的时候，只需要判断对应颜色相同的部分）：
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zGaANoGhAAeB2NdVgKc054.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zGaANoGhAAeB2NdVgKc054.png)
 
 Case 1. 找到某个位置，将 s1, s2 都切成两半，其中 s1 = x + y，而 s2 = c + d，那么我们只需要保证 x 是 c 的扰乱字符串，y 是 d 的扰乱字符串。
 
-![Drawing 5.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zGyAOitSAAeBHGBc82w657.png)
+![Drawing 5.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zGyAOitSAAeBHGBc82w657.png)
 
 Case 2. 找到某个位置，切分后，使得 s1 = x + y，s2 = c + d，并且 x 是 d 的扰乱字符串，而 y 是 c 的扰乱字符串。
 
@@ -714,7 +714,7 @@ boolean isScramble(String s1, String s2) {
 
 首先，假设给定的数组 A\[\] = {1, 2, 3}，然后看一下利用这个数组可以组合出哪些数。在一开始，如果我们什么元素都不取，肯定可以走到的点为 0。因此，可以将 0 设置为起点。
 
-![1.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zJmAW8HqAAm_mP67WDc578.gif)
+![1.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zJmAW8HqAAm_mP67WDc578.gif)
 
 至此，你应该已经分析出最后一步应该如何操作。它依赖两点：
 
@@ -737,13 +737,13 @@ Z.contains(V) -> true / false
 
 两个点集之间的关系可以简略表示如下：
 
-![Drawing 7.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zMOAbGNlAABqNw0YfrM582.png)
+![Drawing 7.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zMOAbGNlAABqNw0YfrM582.png)
 
 #### 2\. 子问题
 
 通过观察最后一步，可以发现它就是在可访问点集 Y 的基础上，通过**加入边**A\[n-1\] ，然后生成点集 Z。如果引入更早一点的可访问点集 X，可以将点集的扩展顺序表示如下：
 
-![Drawing 8.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zMuAH3SUAABi4JG4bTk857.png)
+![Drawing 8.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zMuAH3SUAABi4JG4bTk857.png)
 
 那么更进一步，它的子问题就是：
 
@@ -809,7 +809,7 @@ return old.contains(V)
 
 假设 S = {0, 5}，A\[i\] = 2 现在要原地完成一个集合的迭代，我们从小到大开始迭代，如下图所示：
 
-![2.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zN2Af9neAAQiPWUjU6c193.gif)
+![2.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zN2Af9neAAQiPWUjU6c193.gif)
 
 但是，如果按上图这样操作，就会出错。因为 A\[i\] = 2 被使用了两次，而题目要求只能使用一次。
 
@@ -821,7 +821,7 @@ return old.contains(V)
 
 迭代步骤如下图所示：
 
-![3.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zPGAEM2YAARohJntves709.gif)
+![3.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zPGAEM2YAARohJntves709.gif)
 
 我们发现，如果采用从大往小的方向遍历，就可以利用一个点集完成迭代。
 
@@ -941,7 +941,7 @@ class Solution {
 
 输入：\[3,2,3,null,3,null,1\]
 
-![Drawing 11.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zQeANJDtAAAi-wCtZjQ178.png)
+![Drawing 11.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB2zQeANJDtAAAi-wCtZjQ178.png)
 
 输出：7
 
@@ -993,7 +993,7 @@ class Solution {
 
 然后再看一下 f(x) 的表示。我们从底层开始往上抢的时候，应该只有相邻的两层才会有相互的依赖，如下图所示：
 
-![Drawing 12.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zTyAErOsAACsCnIj2ck114.png)
+![Drawing 12.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zTyAErOsAACsCnIj2ck114.png)
 
 相隔更远的层间信息不需要保留，所以 f(x) 函数并不需要一个哈希或者数组来记录 \[x\] 的信息。相当于直接使用 DFS，而不需要记忆化 DFS。
 
@@ -1304,7 +1304,7 @@ class Solution{
 
 **练习题 7**：给你一个 m \* n 的矩阵 seats 表示教室中的座位分布。如果座位是坏的（不可用），就用 '#' 表示；否则，用 '.' 表示。学生可以看到**左侧、右侧、左上、右上**这四个方向上紧邻他的学生的答卷，但是看不到直接坐在他前面或者后面的学生的答卷。请你计算并返回该考场可以容纳的一起参加考试且无法作弊的最大学生人数。学生必须坐在状况良好的座位上。
 
-![Drawing 13.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zYiAaRzEAAAr6bp4N30004.png)
+![Drawing 13.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zYiAaRzEAAAr6bp4N30004.png)
 
 输出：4
 
@@ -1316,7 +1316,7 @@ class Solution{
 
 在本讲中，我们介绍了通用的 DP 的 6 步破解法，并且罗列了面试中常出现的几种 DP 型题目。这里我还总结了其他一些类型的 DP 题目，你可以参考下图进行专项练习，逐一击破个类型的DP 问题。
 
-![Drawing 14.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zZ2AJiVSAARePu3Wkh8895.png)
+![Drawing 14.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB2zZ2AJiVSAARePu3Wkh8895.png)
 
 DP 求解的套路基本就是 6 步。不过要熟练运用这种求解方法，你还需要花更多的时间练习。
 

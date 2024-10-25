@@ -67,7 +67,7 @@ sudo systemctl start docker
 docker version
 ```
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20231226102019.60713e8b.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20231226102019.60713e8b.jpg)
 
 ### 8 防止Docker自动更新
 
@@ -97,11 +97,11 @@ sudo docker run hello-world
 
 `docker run hello-world` 是运行 `hello-world` 镜像，会在本地查看有没有 `hello-world` 镜像，如果有会直接运行镜像，如果没有会下载镜像，下载完成再运行镜像。
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240124092557.18980cdc.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240124092557.18980cdc.jpg)
 
 执行结果：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20231226101316.1d5dc6d8.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20231226101316.1d5dc6d8.jpg)
 
 `hello-world` 镜像是 Docker 提供的一个极简的示例镜像，用于测试 Docker 是否正确安装和运行。`hello-world` 容器在运行完其任务后会自动停止。这个容器的任务非常简单，只是输出 "Hello from Docker!" 这一条消息，然后完成其工作。
 
@@ -119,11 +119,11 @@ Docker 官方提供了镜像仓库是 `DockerHub` ，但是服务器是在国外
 
 搜索镜像服务：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240123234026.52f27981.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240123234026.52f27981.jpg)
 
 获取加速地址：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240123234400.cba00306.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240123234400.cba00306.jpg)
 
 ### 3 配置镜像加速
 

@@ -29,7 +29,7 @@ _注：你可以到 Wireshark 的主页：_[https://www.wireshark.org/download.h
 
 Whireshark 可以帮你看到整个网络交通情况，也可以帮你深入了解每个封包。而且 Whireshark 在 macOS、Linux、Windows 上的操作都是一致的，打开 Wireshark 会先看到如下图所示的一个选择网络接口的界面。
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpVWAMmCIAACa-Lf3Ezk286.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpVWAMmCIAACa-Lf3Ezk286.png)
 
 我们要做的第一件事情就是**选择一个网络接口**（**Network Interface**）。Linux 下可以使用`ifconfig`指令看到所有的网络接口，Windows 下则使用 ipconfig。可以看到，上图中有很多网络接口，目前我教学这台机器上，连接路由器的接口是**以太网 2**。另外可以看到，我的机器上还有`VMware`的虚拟网络接口（你的机器可能和我的机器显示的不一样）。
 
@@ -39,11 +39,11 @@ Whireshark 可以帮你看到整个网络交通情况，也可以帮你深入了
 
 因为整个网络的数据非常多，大量的应用都在使用网络，你会看到非常多数据条目，每个条目是一次数据的发送或者接收。如下图所示：
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpV-AAY9XAAFmcX9uc-U085.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpV-AAY9XAAFmcX9uc-U085.png)
 
 以下是具体捕获到的内容：
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpWWAdQPSAAHJ-HWaYz0586.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpWWAdQPSAAHJ-HWaYz0586.png)
 
 - 序号（No.）是 Wireshark 分配的一个从捕获开始的编号。
     
@@ -62,17 +62,17 @@ Whireshark 可以帮你看到整个网络交通情况，也可以帮你深入了
 
 如果你具体选择一个 TCP 协议的捕获，可以看到如下图所示的内容：
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpXCAQhhpAAA9Uqsah2A016.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpXCAQhhpAAA9Uqsah2A016.png)
 
 然后在这下面可以观察到详情内容：
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpXeAGJAjAADSD8vKBNo956.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpXeAGJAjAADSD8vKBNo956.png)
 
 我们可以从不同的层面来看这次捕获。从传输层看是 TCP 段；从网络层来看是 IP 封包；从链路层来看是 Frame。
 
 点开不同层面观察这个 TCP 段，就可以获得对它更具体的认识，例如下图是从 TCP 层面理解这次捕获：
 
-![Drawing 5.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpYGAGGQaAAE4PBKz5m0260.png)
+![Drawing 5.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpYGAGGQaAAE4PBKz5m0260.png)
 
 你可以看到这次捕获是一次 ACK（见 Flags）字段，从端口 58260 发往 443，那么大概率是 HTTPS 客户端给服务器的响应。
 
@@ -97,7 +97,7 @@ Whireshark 追溯的是最底层网卡传输的 Frame（帧），可以追溯到
 
 Wireshark 还可以用来观察其他的协议，比如说 HTTP 协议，下图是对 HTTP 协议的一次捕获：
 
-![Drawing 6.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpY2AEOKnAAE6yRKPJBg745.png)
+![Drawing 6.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpY2AEOKnAAE6yRKPJBg745.png)
 
 可以看到，Wireshark 不仅仅捕获了应用层，还可以看到这次 HTTP 捕获对应的传输层、网络层和链路层数据。
 
@@ -107,44 +107,44 @@ Wireshark 还提供了捕获的过滤，我们只需要输入过滤条件，就�
 
 比如我们想分析一次到百度的握手。首先开启捕获，然后在浏览器输入百度的网址，最后通过`ping`指令看下百度的 IP 地址，如下图所示：
 
-![Drawing 7.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpZWAM_ZDAACDEGeqkD4822.png)
+![Drawing 7.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpZWAM_ZDAACDEGeqkD4822.png)
 
 看到IP 地址之后，我们在 Wireshark 中输入表达式，如下图所示：
 
-![Drawing 8.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpZuAdqvyAAJKx2ztVfs457.png)
+![Drawing 8.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpZuAdqvyAAJKx2ztVfs457.png)
 
 这样看到的就是和百度关联的所有连接。上图中刚好是一次从建立 TCP 连接（3 次握手），到 HTTPS 协议传输握手的完整过程。你可以只看从`192.168.1.5`到`14.215.177.39`的请求。
 
 首先是从客户端（`192.168.1.5`）发出的 SYN 和百度返回的 SYN-ACK，如下图所示：
 
-![Drawing 9.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpaSAVVd3AACrCY_TI9w061.png)
+![Drawing 9.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpaSAVVd3AACrCY_TI9w061.png)
 
 然后是客户端返回给百度一个 ACK：
 
-![Drawing 10.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpaqAc4GfAAA15zGZlCA421.png)
+![Drawing 10.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpaqAc4GfAAA15zGZlCA421.png)
 
 接下来是 HTTPS 协议开始工作（开始握手）：
 
-![Drawing 11.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpa-AKOziAABRvFiPr0Q242.png)
+![Drawing 11.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpa-AKOziAABRvFiPr0Q242.png)
 
 可以看到 HTTPS 协议通过 TLSv1.2 发送了 Client Hello 到服务端。接下来是 Server 返回给客户端 ACK，然后再发送给客户端一个 Server Hello：
 
-![Drawing 12.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpbWARjykAAA7-AoCxcc618.png)  
-![Drawing 13.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpbuAcAuCAAA17DK_mn8422.png)
+![Drawing 12.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpbWARjykAAA7-AoCxcc618.png)  
+![Drawing 13.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpbuAcAuCAAA17DK_mn8422.png)
 
 之后百度回传了证书：
 
-![Drawing 14.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpcCAZ1NdAABB_oCh1OM046.png)
+![Drawing 14.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpcCAZ1NdAABB_oCh1OM046.png)
 
 最后开始交换密钥，直到 HTTPS 握手结束：
 
-![Drawing 15.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpcaAEOyoAAD6xEQthA8678.png)
+![Drawing 15.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpcaAEOyoAAD6xEQthA8678.png)
 
 ### 报文颜色
 
 在抓包过程中，黑色报文代表各类报文错误；红色代表出现异常；其他颜色代表正常传输。
 
-![Drawing 16.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpcyAFfC8AAHgGuq9ECI016.png)
+![Drawing 16.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCTpcyAFfC8AAHgGuq9ECI016.png)
 
 ### 总结
 
@@ -152,7 +152,7 @@ Wireshark 还提供了捕获的过滤，我们只需要输入过滤条件，就�
 
 Wireshark 是个强大的工具，支持大量的协议。还有很多关于 Wireshark 的能力，希望你可以进一步探索，如下图中鼠标右键一次捕获，可以看到很多选项，都是可以深挖的。
 
-![Drawing 17.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpdOATgr1AADfReXfTIc663.png)
+![Drawing 17.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCTpdOATgr1AADfReXfTIc663.png)
 
 那么现在你可以尝试来回答我在本讲开头提出的问题：如何进行 TCP 抓包？
 

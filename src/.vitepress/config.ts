@@ -16,7 +16,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: "首页",
-        link: "http://p4ui.toweydoc.tech:20080",
+        link: "http://p6ui.toweydoc.tech:20080",
       },
     ],
 

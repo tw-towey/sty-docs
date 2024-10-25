@@ -31,8 +31,8 @@
 
 还有一方面就是从招聘信息可以得知，掌握一门后端语言，特别是 Node.js，已经成为一个加分项。在前端竞争如此激烈的今天，甚至可以说是一个必备技能。
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBBqTKAW_1kAACq0w1s3oU424.png)  
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBBqTaAQhNtAAB4YN0SxUw334.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBBqTKAW_1kAACq0w1s3oU424.png)  
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBBqTaAQhNtAAB4YN0SxUw334.png)
 
 **这时你肯定会问，我可以学习其他应用更广的 Java 或者 Go，为什么要学 Node.js 呢？**
 

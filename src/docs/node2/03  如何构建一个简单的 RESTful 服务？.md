@@ -23,7 +23,7 @@ RESTful（Representational State Transfer）是一种架构的**约束条件**�
 
 我们应该都比较熟知 MVC 架构，它在前后端分离中起到了非常重要的作用，我们先来看下传统的 MVC 架构的模式，如图 1 所示。
 
-![图片 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMl-ASR4aAAAg3opNISU640.png)
+![图片 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMl-ASR4aAAAg3opNISU640.png)
 
 此模式中：
 
@@ -36,7 +36,7 @@ RESTful（Representational State Transfer）是一种架构的**约束条件**�
 
 但是在目前服务划分较细的情况下，M 层不仅仅是数据库操作，因此这种架构模式显得有些力不从心，导致开发的数据以及业务逻辑有时候在 M 层，有时候却在 C 层。出现这类情况的核心原因是 C 与 C 之间无法进行复用，如果需要复用则需要放到 M 层，那么业务逻辑就会冗余在 M，代码会显得非常繁杂，如图 2 所示。
 
-![图片 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMnaAG42WAAA3-AZ5WeM867.png)
+![图片 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMnaAG42WAAA3-AZ5WeM867.png)
 
 图 2 MVC 模式问题
 
@@ -44,7 +44,7 @@ RESTful（Representational State Transfer）是一种架构的**约束条件**�
 
 我们先来看下 MSVC 的架构模式，如图 3 所示。
 
-![图片 6.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMomAfpfmAABDDmUKgC4829.png)
+![图片 6.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMomAfpfmAABDDmUKgC4829.png)
 
 将所有数据相关的操作都集中于 M 层，而 M 层复用的业务逻辑则转到新的 S 层，C 层则负责核心业务处理，可以调用 M 和 S 层。以上是相关知识点，接下来我们进行架构的实践设计。
 
@@ -58,7 +58,7 @@ RESTful（Representational State Transfer）是一种架构的**约束条件**�
 
 为了更清晰些，我绘制了一个时序图来表示，如图 4 所示。
 
-![图片 7.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMpOASLZ7AACJ0Un2XOA103.png)
+![图片 7.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMpOASLZ7AACJ0Un2XOA103.png)
 
 图 4 例子系统时序图
 
@@ -165,7 +165,7 @@ async function queryData(queryOption) {
 
 在 MongoDB 中查询到具体的 contents 后，再调用 filterUserinfo 这个函数将 contents 中的 user\_id 转化为 userinfo，具体代码如图 5 所示（为了代码简洁，我使用了截图，源代码请参考 [GitHub](https://github.com/love-flutter/nodejs-column) 上的）：
 
-![图片 8.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMqSAeQfTAAF5ba4WuFA603.png)
+![图片 8.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMqSAeQfTAAF5ba4WuFA603.png)
 
 图 5 filterUserinfo 代码实现
 
@@ -187,7 +187,7 @@ http://127.0.0.1:5000/v1/userinfos?user_ids=1001,1002
 
 你将会看到一个 JSON 的返回结构，如图 6 所示。
 
-![图片 9.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMqyAFEfxAACiD747m4U810.png)
+![图片 9.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMqyAFEfxAACiD747m4U810.png)
 
 图 6 API server 返回信息
 
@@ -200,7 +200,7 @@ http://127.0.0.1:5000/v1/test
 
 你将会看到返回的状态码是 404，如图 7 所示，这也是 restful 的规范之一，即正确地使用 http 状态码。
 
-![图片 10.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMrWAHu5_AAFIdt9MME4795.png)
+![图片 10.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMrWAHu5_AAFIdt9MME4795.png)
 
 图 7 异常响应返回
 
@@ -213,7 +213,7 @@ http://127.0.0.1:4000/v1/contents
 
 你将会看到如图 8 所示的响应结果。
 
-![图片 11.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMr-AKdSMAAFW1ay8vPI075.png)
+![图片 11.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMr-AKdSMAAFW1ay8vPI075.png)
 
 图 8 contents 响应结果
 
@@ -229,7 +229,7 @@ http://127.0.0.1:4000/v1/contents
 
 既然是 M 和 C，我们就先思考下，上面的 restful server 中哪些是 M 层的逻辑，哪些是 C 层的逻辑。
 
-![图片 12.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMsyAF-PaAAB-xAx-32s648.png)
+![图片 12.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMsyAF-PaAAB-xAx-32s648.png)
 
 以上是所有的逻辑，根据表格，我们首先创建两个目录分别是 **model** 和 **Controller**：
 
@@ -265,7 +265,7 @@ const routerMapping = {
 
 路由配置完成以后，就需要根据路由配置，将请求路径、转发到处理相应功能的模块或者类、函数中去，代码如图 9 所示。
 
-![图片 13.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMtiAAs7YAAJNxih_ssE949.png)
+![图片 13.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMtiAAs7YAAJNxih_ssE949.png)
 
 图 9 index 核心逻辑
 
@@ -287,13 +287,13 @@ const routerMapping = {
 
 我们来看下这部分代码，如图 10 所示。
 
-![图片 14.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMxSAAxc8AAF_MvEbU10031.png)
+![图片 14.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMxSAAxc8AAF_MvEbU10031.png)
 
 图 10 Controller 基类
 
 功能还是比较简单的，只是提炼了一些 Controller 共同的部分。接下来我们再来实现 content.js 这个 Controller，代码如图 11 所示：
 
-![图片 15.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMwaAMQK8AAD-onTOdVQ611.png)
+![图片 15.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMwaAMQK8AAD-onTOdVQ611.png)
 
 图 11 content.js Controller
 
@@ -324,13 +324,13 @@ http://127.0.0.1:3000/v1/test
 
 接下来我们再来实现 Model 层部分，和 Controller 类似，我们也需要一个基类来处理 Model 层相似的逻辑，然后其他 Model 来继承这个基类，这部分如图 12 所示。
 
-![图片 16.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMx2AHsKzAAEYhjLBhO4974.png)
+![图片 16.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMx2AHsKzAAEYhjLBhO4974.png)
 
 图 12 Model 基类
 
 这个基类首先设置了 db 名称，其次定义了一个 GET 方法来获取表的操作句柄，这部分代码与上面简单 restful 服务的类似。完成基类后，我们再来完善 model 中的 content.js 逻辑。
 
-![图片 17.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMyeAPElfAAEk45BmKsI006.png)
+![图片 17.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMyeAPElfAAEk45BmKsI006.png)
 
 图 13 model content.js 代码实现
 
@@ -352,7 +352,7 @@ async list() {
 
 在上面的代码中存在一个问题，就是 \_filterUserinfo 是放在 Controller 来处理，这个方法又会涉及调用 API server 的逻辑，看起来也是数据处理部分，从原理上说这部分不适合放在 Controller。其次在其他 Controller 也需要 \_filterUserinfo 时，这时候就比较懵逼了，比如我们现在有另外一个 Controller 叫作 recommend.js，这里面也是拉取推荐的 content，也需要这个 \_filterUserinfo 方法，如图 14 所示。
 
-![图片 18.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMzCANv2nAAFcFfow9m4167.png)
+![图片 18.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBHMzCANv2nAAFcFfow9m4167.png)
 
 图 14 MVC 复用性问题例子
 
@@ -367,7 +367,7 @@ async list() {
 
 为了解决这个问题，有一个新的概念——Service 层，具体如图 15 所示。
 
-![图片 19.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMzqAc1JJAAFspSJGcu8417.png)
+![图片 19.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBHMzqAc1JJAAFspSJGcu8417.png)
 
 图 15 MSVC 优化效果
 

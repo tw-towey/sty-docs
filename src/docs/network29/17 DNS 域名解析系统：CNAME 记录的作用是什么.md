@@ -8,7 +8,7 @@
 
 下图是一个 URL 的示例：
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCk6Z-ASLtEAAH_Ssm7xjk737.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCk6Z-ASLtEAAH_Ssm7xjk737.png)
 
 - Scheme 部分代表协议，不只有 https，还有 ftp、ssh 等。不同协议代表着不同类型的应用在提供资源。
     
@@ -49,7 +49,7 @@ DNS 本身是一个出色的分布式架构。
 
 平时我们看到的`.com``.cn``.net`等，称为顶级域名。比如对于 www.laogu.com 这个网址来说，`com`是顶级域名，`lagou`是二级域名，`www`是三级域名。域名分级当然是为了建立目录和索引，并对数据存储进行分区。
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCk6auABUkFAAKhjoCbm9k527.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCk6auABUkFAAKhjoCbm9k527.png)
 
 从上图中可以看到，DNS 的存储设计是一个树状结构。叶子节点中才存放真实的映射关系，中间节点都是目录。存储分成 3 层：
 
@@ -66,7 +66,7 @@ DNS 本身是一个出色的分布式架构。
 
 查询过程如下图所示：
 
-![Drawing 5.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCk6bGABepRAAHGRO0l88o350.png)
+![Drawing 5.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWCk6bGABepRAAHGRO0l88o350.png)
 
 结合上图展示的DNS 查询过程，我们再来具体介绍一下 。
 

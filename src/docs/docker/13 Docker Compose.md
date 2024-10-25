@@ -16,7 +16,7 @@ Docker Compose 是 Docker 公司推出的一个工具，用于简化多容器应
 
 使用 `docker compse version` 命令可以查看到版本信息：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240228223219.fe1ca699.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240228223219.fe1ca699.jpg)
 
 ##  13.3 Docker Compose使用
 
@@ -40,7 +40,7 @@ Docker Compose 主要是对多个容器的同时启动和停止，所以我们�
 
 代码没那么重要，重要是演示项目的部署，项目结构：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301170115.7ed55a27.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301170115.7ed55a27.jpg)
 
 上面docker 目录下的 `docker-compose.yaml` 和 `Dockerfile` 是后面的步骤编写的。
 
@@ -198,7 +198,7 @@ Docker Compose 只是帮我们同时启停容器，所以启动容器之前的�
 
 首先在 IDEA 中编写 `docker-compose.yaml` 这个文件，后面我们把这个文件上传到宿主机上再执行，直接在宿主机上编写也可以，就是格式不太好控制，在 IDEA 中编写，可以安装一个名称为 docker 插件，这样编写 `docker-compose.yaml` 的时候，会有提示。
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301091916.e4451003.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301091916.e4451003.jpg)
 
   
 以前我们启动 Redis 容器使用的是如下命令：
@@ -317,7 +317,7 @@ docker compose up -d
 
 启动后，会自动下载镜像和通过 Dockerfile 自动构建镜像，并启动服务：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301095336.4f015498.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301095336.4f015498.jpg)
 
   
 
@@ -330,7 +330,7 @@ docker compose ps
 
 查看：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301173435.99096db2.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301173435.99096db2.jpg)
 
 可以看到因为 docker-compomse.yaml 文件所在的目录名称为 `compose-boot`，所以启动的容器名称前面都添加了 `compose-boot`，也就是容器名称为：`文件所在目录名 + 服务名`。
 
@@ -340,13 +340,13 @@ docker compose ps
 
 添加数据到 Redis：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301174035.75befb52.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301174035.75befb52.jpg)
 
   
 
 从 Redis 获取数据：
 
-![](http://p4ui.toweydoc.tech:20080/images/stydocs/20240301174122.8553c2ba.jpg)
+![](http://p6ui.toweydoc.tech:20080/images/stydocs/20240301174122.8553c2ba.jpg)
 
 ###  7 停止并删除
 

@@ -15,7 +15,7 @@
 
 现实情况下，大部分是第二种方案，在此基础上我们绘制了一个简单的架构图：
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T6WALOD3AAESrBDsph0977.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T6WALOD3AAESrBDsph0977.png)
 
 图 1 Node.js 与后台兼容方案
 
@@ -89,7 +89,7 @@ upstream lagou-backend {
 
 接下来就是在 Nginx 中配置不同路径的转发规则，我们先看下 /test/index 和 /music/info/index 的配置：
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T7aAdPm4AAGL6gtb52U583.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T7aAdPm4AAGL6gtb52U583.png)
 
 图 2 lagou-nodejs Nginx 配置
 
@@ -103,7 +103,7 @@ upstream lagou-backend {
 
 首先你肯定要知道在 Node.js 服务中是否有相应的路径处理服务，所以要修改 router.js 中的代码，在匹配到具体的 Controller 逻辑时，在 ctx 中标记已匹配服务，而如果没有匹配到相应的 Controller 时则不做任何标记，如图 3 中红色框部分逻辑：
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB9T8CARhfuAAJXX2CAbd0870.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB9T8CARhfuAAJXX2CAbd0870.png)
 
 图 3 router.js 标记匹配到服务
 
@@ -163,7 +163,7 @@ module.exports = NameService;
 
 复制一个 app.js 为 app-3001.js 文件，然后将其中的 3000 端口修改为 3001 （包括里面的 console.log 中的 3000，避免误解），其次修改 pm2.config.js 在配置文件中的 apps 数组中增加一项启动配置，两个数组元素的配置差异就是启动文件和进程名，改动如下图 4 所示：
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T8yAUpkWAAHVHZ00FDk139.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWB9T8yAUpkWAAHVHZ00FDk139.png)
 
 图 4 pm2.config.js 文件配置
 
@@ -204,7 +204,7 @@ pm2 list
 
 可以看到图 5 所示。
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWB9T9WAPFx3AAFhIzbGogw453.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWB9T9WAPFx3AAFhIzbGogw453.png)
 
 图 5 当前 PM2 进程列表
 

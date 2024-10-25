@@ -16,7 +16,7 @@ Linux是一个操作系统(OS)
 
 详细下载安装教程：[点击跳转](https://blog.csdn.net/da_ge_de_nv_ren/article/details/128408962)
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/10a899e0648f41e4a1a2cd091c4b503c.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/10a899e0648f41e4a1a2cd091c4b503c.png)
 
 ## 🧾目录结构
 
@@ -46,9 +46,9 @@ Linux 的一切资源都挂载在 / 节点下。
 VI是Unix操作系统和类Unix操作系统中最通用的文本编辑器。  
 VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可以主动的以字体颜色辨别语法的正确性，方便程序设计。VIM 与VI编辑器完全兼容。
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1e539d9cf1be42218a4b27a659908b54.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1e539d9cf1be42218a4b27a659908b54.png)  
 基本上 vi/vim 共分为三种模式，分别是一般模式，编辑模式和命令模式。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/e33ebfd4bbb445bd9b1c630cde96a543.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/e33ebfd4bbb445bd9b1c630cde96a543.png)
 
 ### 一般模式
 
@@ -141,9 +141,9 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 ## 🌐网络配置
 
 VMware安装完成后会在宿主机上生成两块虚拟网卡，这两块网卡与虚拟机管理的两个虚拟交换机相连。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/b0579cfde19d470781b509c494d02fea.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/b0579cfde19d470781b509c494d02fea.png)  
 VMware管理了3个特殊的虚拟交换机：VMnet0（用于桥接模式），VMnet8（用于NAT模式），VMnet1（用于仅主机模式）。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/4cf85bd57b944b6f9478ecf8999cc3a8.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/4cf85bd57b944b6f9478ecf8999cc3a8.png)  
 VMware提供了3种网络工作模式：Bridged(桥接模式)，NAT（网络地址转换模式），Host-Only（仅主机模式)。
 
 **🌐桥接模式：**
@@ -155,7 +155,7 @@ VMware提供了3种网络工作模式：Bridged(桥接模式)，NAT（网络地�
 👉这样所有的虚拟机与宿主机以及与宿主机在同一个局域网下的主机之间都是可以相互访问的。
 
 👉在桥接模式下，虚拟机IP地址需要与宿主机在同一个网段，如果需要联网，则虚拟机的网关和DNS也需要与宿主机被桥接的网卡一致。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/59868aa2fe134a97930c9fb9c061efa6.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/59868aa2fe134a97930c9fb9c061efa6.png)  
 📍 虚拟网桥会转发宿主机网卡接收到的广播和组播信息，以及目标为虚拟交换机网段的单播。所以，与虚拟交换机机连接的虚拟网卡，如: eth0、ens33等能接收到路由器发出的DHCP信息及路由更新。
 
 📍桥接模式是通过虚拟网桥将主机上的网卡与虚拟交换机VMnet0连接在一起，虚拟机上的虚拟网卡都连接在虚拟交换机VMnet0上，在桥接模式下，虚拟机IP必须与宿主机的IP在同一网段且子网掩码、网关与DNS也要与宿主机网卡的一致。
@@ -169,7 +169,7 @@ VMware提供了3种网络工作模式：Bridged(桥接模式)，NAT（网络地�
 👉如果你的网络ip资源紧缺，但又希望虚拟机能够联网，NAT模式是最好的选择。
 
 👉NAT模式借助虚拟NAT设备和虚拟DHCP服务器，使得虚拟机可以联网  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/ea02a23281b348199e1db08aa66f8e21.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/ea02a23281b348199e1db08aa66f8e21.png)  
 📍使用NAT模式，就是让虚拟机借助NAT（网络地址转换功能)，通过宿主机所在的网络来访问互联网。
 
 📍在虚拟机连接Vmnet8虚拟交换机时，虚拟机会将虚拟NAT设备及虚拟DHCP服务器连接到Vmnet8虚拟交换机上。依靠虚拟的NAT设备及虚拟的DHCP设备，如果你的宿主机已经联网了，那么你的虚拟机也就可以联网。
@@ -188,7 +188,7 @@ VMware提供了3种网络工作模式：Bridged(桥接模式)，NAT（网络地�
 
 👉仅主机模式将虚拟机与公网隔开，使虚拟机成为一个独立的系统，只能与宿主机相互通讯。
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/6d8985b634a34302803d65e8c957e0ed.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/6d8985b634a34302803d65e8c957e0ed.png)  
 📍仅主机模式通过宿主机的虚拟网卡VMwareNetwork Adapter VMnet1来连接虚拟交换机VMnet1，来达到宿主机与虚拟机通信的目的，但是虚拟机不能主动与宿主机通信，是单向连通的。
 
 📍如果想要在仅主机模式下联网，可以将能联网的主机网卡共享给VMware Network Adapter VMnet1，这样就可以实现虚拟机联网。
@@ -262,7 +262,7 @@ ifconfig eth0 -arp  # 关闭
 vim /etc/sysconfig/network-scripts/ifcfg- ens33
 ```
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/c974d6617fe743b1ae6d9f4ab63a8212.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/c974d6617fe743b1ae6d9f4ab63a8212.png)
 
 ```shell
 # 重启网路
@@ -306,7 +306,7 @@ hostname set-hostname 修改的主机名  // 更好的修改方式，不用重�
 vim /etc/hosts //进入hosts配置文件，进行添加
 ```
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1529d21b3a1341ee90f283006a9c5776.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1529d21b3a1341ee90f283006a9c5776.png)  
 找到电脑目录 C:\\Windows\\System32\\drivers\\etc下的hosts文件将192.168.111.100 hhh 添加进去
 
 打开DOS窗口输入 `Ping hhh` 测试是否可以Ping通
@@ -314,7 +314,7 @@ vim /etc/hosts //进入hosts配置文件，进行添加
 ### 远程登录
 
 Dos窗口登录  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/5d1d43f781264227af27b117ff7d847b.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/5d1d43f781264227af27b117ff7d847b.png)  
 通常在工作过程中，公司中使用的真实服务器或者是云服务器，都不允许除运维人员之外的员工直接接触，因此就需要通过远程登录的方式来操作。目前，比较主流的有Xshell, SSH Secure Shell, SecureCRT,FinalShell。
 
 ## 💻系统管理
@@ -1787,7 +1787,7 @@ groupmod -n root user1
 🔻接下来的字符中，以三个为一组，且均为`rwx`的三个参数的组合。其中， `r` 代表可读(read)、 `w` 代表可写(write)、 `x` 代表可执行(execute)。 要注意的是，这三个权限的位置不会改变，如果没有权限，就会出现减号 `-` 而已。
 
 🔺 每个文件的属性由左边第一部分的 10 个字符来确定。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/753075efdfbe4549adb3b353523c08b8.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/753075efdfbe4549adb3b353523c08b8.png)  
 🌥 第 0 位确定文件类型，第 1-3 位确定属主（该文件的所有者)拥有该文件的权限。
 
 🌦 第4-6位确定属组（所有者的同组用户）拥有该文件的权限。
@@ -1799,7 +1799,7 @@ groupmod -n root user1
 🌩 第 2、5、8 位表示写权限，如果用 w 字符表示，则有写权限，如果用 - 字符表示没有写权限。
 
 🌨 第 3、6、9 位表示可执行权限，如果用 x 字符表示，则有执行权限，如果用 - 字符表示，则没有执行权限。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/c8e7c5c0c9f340428d66c3646894fa29.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/c8e7c5c0c9f340428d66c3646894fa29.png)  
 ☃️ 如果查看到是文件：链接数指的是硬链接个数。
 
 ⛄️ 如果查看的是文件夹：链接数指的是子文件夹个数。
@@ -1816,9 +1816,9 @@ groupmod -n root user1
 
 📎 Linux/Unix 的文件调用权限分为三级 : `文件所有者（Owner）`、`用户组（Group）`、`其它用户（Other Users）`。
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/cb3b2acfadf54b23bf6c35055fe45a58.png)  
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/cb3b2acfadf54b23bf6c35055fe45a58.png)  
 📎 只有文件所有者和超级用户可以修改文件或目录的权限。可以使用绝对模式（八进制数字模式），符号模式指定文件的权限。  
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/1790487a98b34ebfa1d572a102ff69b2.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/1790487a98b34ebfa1d572a102ff69b2.png)
 
 🔦 **语法：** `chmod [ {ugoa} {+-=} {rwx} ] 文件或目录`
 

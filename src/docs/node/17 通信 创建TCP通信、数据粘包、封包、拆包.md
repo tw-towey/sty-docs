@@ -264,7 +264,7 @@ client.on('close', () => {
 
 本例使用长度编码的方式约定通信双方的数据传输方式。
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/d58d2870c3134707a23c15cec23f57be.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/d58d2870c3134707a23c15cec23f57be.png)
 
 首先将被传输的消息分为定长的消息头（以 header 表示）和不定长的消息体（以 body 表示）两个部分。
 

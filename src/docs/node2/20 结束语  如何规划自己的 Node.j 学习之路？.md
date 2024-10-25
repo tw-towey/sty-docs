@@ -121,7 +121,7 @@
 
 当你学习新技术时，只需要扩充这部分的知识体系就足够了。为了帮助你梳理内容，建立整个框架，我整理了一张思维导图，如图 1 所示。
 
-![图片2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWCY3O2AfqpLAAQW5ovFSIo859.png)
+![图片2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWCY3O2AfqpLAAQW5ovFSIo859.png)
 
 图 1 最小路径学习新技术思维导图
 

@@ -114,7 +114,7 @@ crs.on('data', () => {
 
 ## 三个角色
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/82958e4c189642cd8fdc9bf73cab75c8.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/82958e4c189642cd8fdc9bf73cab75c8.png)
 
 在这个模式中主要有三种角色：
 

@@ -32,7 +32,7 @@ fs.open(path.resolve('data.txt'), 'r', (err, fd) => {
 
 大文件读写操作的数据传输如图：
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/10e05760de534f8db49f228e938f2eb4.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/10e05760de534f8db49f228e938f2eb4.png)
 
 A文件中的数据要想拷贝到B文件中，默认情况下需要内存作为中转。
 

@@ -15,7 +15,7 @@
 
 下面我们也从这个游戏展开，一步一步得到常用的 DFS 解题模板。以下图为例，位置 0 表示出发点，然后只能上下左右四个方向移动，我们希望能从圆圈位置出发，最后走到五角星的终点位置。
 
-![Drawing 0.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLIuAe-K4AAThUffhgBs401.png)
+![Drawing 0.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLIuAe-K4AAThUffhgBs401.png)
 
 比如，刚从入口出发的时候，我们可以走到 1、2 这两个位置。如果用伪代码进表示，可以写出如下代码：
 
@@ -74,7 +74,7 @@ void 走迷宫(int start) {
 
 另外，我们还需要处理一些重复的问题，比如下图所示的情况：
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLJiAVEFMAAPis02Ruvg421.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLJiAVEFMAAPis02Ruvg421.png)
 
 假设一下，当从位置 0 走到位置 2 之后，其代码应该如下：
 
@@ -94,11 +94,11 @@ void 走迷宫(位置2) {
 
 但是当路径如下图所示，两个位置存在环的情况时，就会一直在递归里面。
 
-![Drawing 2.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLJ-ATFhdAABKyVvexQk941.png)
+![Drawing 2.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLJ-ATFhdAABKyVvexQk941.png)
 
 那么，有没有什么办法可以处理这种回环问题呢？如果我们能够标记一下已经访问过的结点，就可以破解这个环了。
 
-![Drawing 3.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLKaAD7D0AABYDtLlfjg808.png)
+![Drawing 3.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLKaAD7D0AABYDtLlfjg808.png)
 
 比如，当访问位置 0 之后，将其标记为“已访问”（绿色的叉），再从位置 2 遍历的时候，如果发现位置 0 已经访问过了，就不再访问。经过上述分析，代码可以更新如下：
 
@@ -152,13 +152,13 @@ void DFS(int start) {
 
 【**题目**】给你一个矩阵 A，里面只包含字母 ‘O’ 和 'X'，如果一个 'O' 上下左右四周都被 'X' 包围，那么这个 'O' 会被替换成 'X'。请你写程序处理一下这个过程。
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLLCAcS1NAAA2jBxc2Hc121.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLLCAcS1NAAA2jBxc2Hc121.png)
 
 **解释**：由于中心的 'O' 四周都被 'X' 包围，所以需要被换成 'X'，而第 A\[0\]\[0\] = 'O' 靠着边，所以不能被替换。
 
 【**分析**】我们曾经在“[第 07 讲｜并查集](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=685#/detail/pc?id=6696&fileGuid=xxQTRXtVcqtHK6j8)”中讲解过这个题目。实际上，这道题还有另外一种思路。可以演示如下：
 
-![1.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLLmAe45dAAa82spZOiQ958.gif)
+![1.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLLmAe45dAAa82spZOiQ958.gif)
 
 因此，这道题目的重点就是遍历每一个边缘的点，以及与之相邻的点。如果把这个问题的求解过程看成走迷宫，那么需要稍微做出两点变动。
 
@@ -228,7 +228,7 @@ class Solution {
 
 首先，我们将这些问题放宽，就退化为我们在“[12 | 回溯：我把回溯总结成一个公式，回溯题一出就用它](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=685#/detail/pc?id=6701&fileGuid=xxQTRXtVcqtHK6j8)”介绍过的“回溯问题”。因此，我们需要在回溯的基础上，从所有解中，找到最优解。
 
-![Drawing 6.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLMmAAEXKAADJJpVxkwY674.png)
+![Drawing 6.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLMmAAEXKAADJJpVxkwY674.png)
 
 #### DFS 的模板 2
 
@@ -280,7 +280,7 @@ return ans;
 
 解释：
 
-![Drawing 7.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLNKAT4oJAABZGKVGoYU587.png)
+![Drawing 7.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLNKAT4oJAABZGKVGoYU587.png)
 
 【**分析**】最优路径如上图所示，如果两点在图中可达，那么这两个点肯定是在同一个连通域中。不难得出，这个题一定可以利用 DFS 进行求解。但是注意问题要求的是找到最优解，因此，我们还需要从**所有解**中找到**最优解**。此时就需要使用我们刚学过的 DFS 的模板 2 了。
 
@@ -483,7 +483,7 @@ class Solution {
 
 但是这个算法存在**重复计算**，导致复杂度极高。比如，如下图所示，我们发现 fib(5) 实际上是会被重复计算的。
 
-![Drawing 8.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLOWAcfi0AABecQ3YNpQ910.png)
+![Drawing 8.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLOWAcfi0AABecQ3YNpQ910.png)
 
 为了减少这种重复计算，可以有两种办法：
 
@@ -539,7 +539,7 @@ int dfs(int []A, int T) { // 在调用dfs的程序里面处理-1的问题
 
 在给定 A = \[1, 2\]，T= 5 情况下，那么伪代码展开如下：
 
-![Drawing 9.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLO2AJ8fuAACFHV631AQ678.png)
+![Drawing 9.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLO2AJ8fuAACFHV631AQ678.png)
 
 我们可以发现，在不断地求解的过程，总是有很多数会被重复地计算。因此，很容易想到，把一些中间的结果存下来，以便后面使用。
 
@@ -610,7 +610,7 @@ class Solution {
 
 请参见如下简图：
 
-![Drawing 10.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLPeAOH86AAAlXdhkCDc684.png)
+![Drawing 10.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLPeAOH86AAAlXdhkCDc684.png)
 
 自顶向下的最小路径和为 11（即 2 + 3 + 5 + 1 = 11）
 
@@ -624,7 +624,7 @@ DFS 可以帮助我们找到最优解。不过在搜索的时候，若想知道�
 
 那么，什么是 BFS？搜索时，BFS 与 DFS 又有什么不同？我们可以利用下图表示：
 
-![2.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLQCALyAGAAJmqIpaing759.gif)
+![2.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLQCALyAGAAJmqIpaing759.gif)
 
 实际上，我们在“[02 | 队列：FIFO 队列与单调队列的深挖与扩展](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=685#/detail/pc?id=6691&fileGuid=xxQTRXtVcqtHK6j8)”介绍队列时，就已经讲过了 BFS，并且介绍了 BFS 的两种方法与模板。为了方便你复习，将新知识与旧知识联系起来，我把“[第 02 讲](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=685#/detail/pc?id=6691&fileGuid=xxQTRXtVcqtHK6j8)”例 1 中介绍的两种方法的代码链接放在这里，你可以再次动手敲一敲。
 
@@ -662,13 +662,13 @@ bfs(s) { // s表示出发点
 
 解释：行走路线如下图所示，只需要走 4 个格子。（注意有个位置走了斜线）。
 
-![Drawing 12.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLQuAQTCsAACOuVJFPZQ600.png)
+![Drawing 12.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLQuAQTCsAACOuVJFPZQ600.png)
 
 【**分析**】用 BFS 求解问题的时候：**只需要注意一个点的选择**。
 
 对于矩阵中的某个点，由于可以斜线走，那么一共有 8 个方向，如下图所示：
 
-![Drawing 13.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLRGAbDsbAABwTsMVzOo426.png)
+![Drawing 13.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLRGAbDsbAABwTsMVzOo426.png)
 
 那么找下一个点的时候，可以这样写代码：
 
@@ -779,7 +779,7 @@ class Solution {
 
 解释：注意两条边的表示：边 1：(x\[0\]=0, y\[0\]=1, w\[0\]=1), 边 2：（x\[1\] = 1, y\[1\] =2, w\[1\]=2)。所以形成了下图：
 
-![Drawing 14.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLR6ABiN2AABX1UDDRPI404.png)
+![Drawing 14.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLR6ABiN2AABX1UDDRPI404.png)
 
 形成的路径为 0 → 1 → 2，路径最大危险系数为 2，所以输出 2。
 
@@ -787,17 +787,17 @@ class Solution {
 
 【**分析**】当我们看到“最 X"这样的词语的时候，应该条件反射地想到用 BFS。
 
-![Drawing 15.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLSaAX_SNAAB80QBZWDQ335.png)
+![Drawing 15.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLSaAX_SNAAB80QBZWDQ335.png)
 
 不过，在用 BFS 的时候，我们需要先进行一个简单的模拟。
 
 第一轮的时候，如果我们还使用 FIFO 队列。那么有**走法 1**：从 0 出发，走边 <0, 2, 6> 到达 2。
 
-![Drawing 16.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLSyAf36tAACQmcVkKzc136.png)
+![Drawing 16.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWBwLSyAf36tAACQmcVkKzc136.png)
 
 但实际上，还有**走法 2**：从结点 0 走到结点 1，再从结点 1 走到结点 2，路径为 \[<0,1,1>, <1,2,2>\]。
 
-![Drawing 17.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLTSAWneeAACOornImaQ886.png)
+![Drawing 17.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLTSAWneeAACOornImaQ886.png)
 
 这种走法，危险系数仅为 2。
 
@@ -895,7 +895,7 @@ public class Solution {
 
 为了方便你复习，我将本讲的知识点总结如下：
 
-![Drawing 18.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLT-ABq5WAADkE8e9C7Y414.png)
+![Drawing 18.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWBwLT-ABq5WAADkE8e9C7Y414.png)
 
 ### 思考题
 

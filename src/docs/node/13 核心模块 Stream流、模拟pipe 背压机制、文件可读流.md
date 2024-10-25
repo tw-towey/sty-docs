@@ -33,7 +33,7 @@ rs.on('data', chunk => {
 
 ## 数据读取流程
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/05ae2ecebd5d41f0babe814d7613c536.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/05ae2ecebd5d41f0babe814d7613c536.png)
 
 数据的读取操作分为三个部分：
 
@@ -60,7 +60,7 @@ rs.on('data', chunk => {
 
 ## 数据写入流程
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/8640105f8cf04a1699ad299664b4462f.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/8640105f8cf04a1699ad299664b4462f.png)
 
 数据的写入操作分为三个部分：
 

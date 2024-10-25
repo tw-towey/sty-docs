@@ -2,7 +2,7 @@
 
 但是除了这种 FIFO 队列以外，还有一种队列需要注意，就是**单调队列**，由于课本上不常讲，面试中又容易出现，因此需要格外注意。让我们一起把这个数据结构的知识图谱丰富起来。
 
-![Drawing 1.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_RiuASOCMAACEYQ4Rhu8096.png)
+![Drawing 1.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_RiuASOCMAACEYQ4Rhu8096.png)
 
 下面我要介绍的内容在实际的工程应用中也经常会用到，比如：
 
@@ -19,7 +19,7 @@
 
 我们先从基本的 FIFO 队列入手，其特点用动画表示如下：
 
-![1.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_RuiAYzgpAADIHD6hfoY449.gif)
+![1.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_RuiAYzgpAADIHD6hfoY449.gif)
 
 可以发现 FIFO 有两个特点：
 
@@ -36,7 +36,7 @@
 
 输入：
 
-![Drawing 4.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_RwyAWm07AACF5LV9ej0062.png)
+![Drawing 4.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_RwyAWm07AACF5LV9ej0062.png)
 
 输出：\[\[3\], \[9, 8\], \[6, 7\]\]
 
@@ -58,7 +58,7 @@ public class TreeNode {
 **1\. 模拟**  
 首先我们在这棵树上进行模拟，动图演示效果如下所示：
 
-![2.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_RyiAQ0IkAAbQTq2M1V8935.gif)
+![2.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_RyiAQ0IkAAbQTq2M1V8935.gif)
 
 **2\. 规律**  
 通过运行的模拟，可以总结出以下两个特点。
@@ -85,7 +85,7 @@ public class TreeNode {
 
 不过，二叉树的层次遍历与标准的 FIFO 队列不太一样，需要在每一层开始处理之前，记录一下 Queue Size（当前层里面结点的个数），演示如下图所示：
 
-![3.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_R4WADJ8eACXiUG8cfgY721.gif)
+![3.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_R4WADJ8eACXiUG8cfgY721.gif)
 
 Step1. 在一开始首先将根结点 3 加入队列中。
 
@@ -159,7 +159,7 @@ class Solution {
 
 【**小结**】写完代码之后，对 FIFO 队列进行一轮总结。现在除了知道先进先出的特点之外，还可以进一步细化知识点，如下图所示：
 
-![Drawing 22.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_R6aAdoJvAACnbi7IL-c504.png)
+![Drawing 22.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_R6aAdoJvAACnbi7IL-c504.png)
 
 这道题是很多高频面试题的“**母题**”，可以衍生出很多子题出来，因此建议你把这道题研究透彻。如果还有哪里不理解，可以在留言区提问。
 
@@ -174,7 +174,7 @@ class Solution {
 
 那么我们是不是可以用 List 来表示每一层，把下一层的结点统一放到一个新生成的 List 里面。示意图如下：
 
-![4.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_R9eAb3DqAA5cp3pt5r8391.gif)
+![4.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_R9eAb3DqAA5cp3pt5r8391.gif)
 
 Step 1. 首先将结点 3 加入 cur,，形成 cur=\[3\]。
 
@@ -233,7 +233,7 @@ class Solution {
 
 【**思考题**】给定一棵二叉树，如下图所示，树中的结点稍微有点变化，定义如下：
 
-![Drawing 30.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SB2AMn_VAACXDtKnvt4099.png)
+![Drawing 30.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SB2AMn_VAACXDtKnvt4099.png)
 
 ```java
 struct Node {
@@ -250,11 +250,11 @@ struct Node {
 
 至此，经过我们的“浇灌”，FIFO 队列长出了更多的“树叶”。为了方便你理解，我把解决这类题目的重点总结在一张大图中：
 
-![Drawing 33.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SC2AdwWAAADBBGybQP0811.png)
+![Drawing 33.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SC2AdwWAAADBBGybQP0811.png)
 
 【**题目扩展**】切忌盲目刷题，其实只要吃透一道题，就可以解决很多类似的题目。只要掌握分层遍历的技巧，以后再碰到类似的题目，就再也难不住你了。这里我为你总结了一张关于“**二叉树的层次遍历**”的解题技巧，如下图所示：
 
-![Drawing 35.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SEGALU-UAADmDhvBE6M451.png)
+![Drawing 35.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SEGALU-UAADmDhvBE6M451.png)
 
 > 可以点开这里，查看题目的[信息，代码](https://github.com/lagoueduCol/Algorithm-Dryad/blob/main/02.Queue/README.md)。
 
@@ -288,7 +288,7 @@ class MyCircularQueue {
 
 【**方法** 1】只使用 k 个元素的空间，三个变量 front, rear, used 来控制循环队列的使用。分别标记 k = 6 时，循环队列的三种情况，如下图所示：
 
-![Drawing 36.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SF2AEV3pAADK0cYKmv8794.png)
+![Drawing 36.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SF2AEV3pAADK0cYKmv8794.png)
 
 由图可知，在一般情况下，front 和 rear 都是不相等的。但是，如果仔细观察，你会发现在空队列与满队列的时候，front 和 rear 是相等的。那此时该怎么处理呢？
 
@@ -408,7 +408,7 @@ class MyCircularQueue {
 
 **如下图**（**此时 k = 5**）**所示**：
 
-![Drawing 38.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SHeAP85DAADKwUx6Fio771.png)
+![Drawing 38.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SHeAP85DAADKwUx6Fio771.png)
 
 此时，可以发现，循环队列实际上是浪费了一个元素的空间。这个浪费的元素必须卡在 front 与 rear 之间。判断队列空或者满可以：
 
@@ -517,7 +517,7 @@ pre = (i - 1 + capacity) % capacity
 
 至此，我们已经可以将循环队列总结在一张思维导图中，如下图所示：
 
-![Drawing 41.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SIqAG7qhAADoVzWnab0092.png)
+![Drawing 41.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SIqAG7qhAADoVzWnab0092.png)
 
 一会儿我们还会遇到循环队列的内容，比如用途等，下面我们先来讲讲单调队列。
 
@@ -532,11 +532,11 @@ pre = (i - 1 + capacity) % capacity
 
 为了让你更直观地看出两者的区别，我分别绘制了 FIFO 队列和双端队列的图片，如下图所示：
 
-![Drawing 42.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SJeAYvJTAAB3ffWmPoY742.png)
+![Drawing 42.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SJeAYvJTAAB3ffWmPoY742.png)
 
 FIFO 队列
 
-![Drawing 44.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SKmAJflUAACNz8oT0A8471.png)
+![Drawing 44.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SKmAJflUAACNz8oT0A8471.png)
 
 双端队列
 
@@ -557,7 +557,7 @@ FIFO 队列
 
 这里以单调递减队列为例，具体操作如下图所示（为了更直观地展示，我将不同大小的数值绘制为不同的高度）：
 
-![5.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SLyAEHB2AEJPbY2MLoE581.gif)
+![5.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SLyAEHB2AEJPbY2MLoE581.gif)
 
 Step 1. 已有单调队列满足单调递减。
 
@@ -601,7 +601,7 @@ Step 5. 元素 5 与尾部元素 6 比较，6 > 5，因此将 5 入队。
 
 关于这一点，你可以参考下面的动图演示（为了更清晰地演示此过程，被叉掉的元素还保留在原处，但实际上已经不在队列中了）：
 
-![6.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SQOAZRMRABqVn-_iVoo720.gif)
+![6.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_SQOAZRMRABqVn-_iVoo720.gif)
 
 Step 1. 将元素 5 入队，元素 3,4 会被剔除掉。区间 \[8,6,4,3,5\] 最大值为队首元素 8。
 
@@ -628,7 +628,7 @@ Step 6. 将元素 5 出队，此时元素相等，直接出队。
 
 为了更直观地展示，我分别制作了两种情况对应的动图演示。先来看只有入队的情况，如下图所示：
 
-![7.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_STiAcHJnAAmEZ9koVKA128.gif)
+![7.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_STiAcHJnAAmEZ9koVKA128.gif)
 
 Step 1. 元素 3 入队，此时队首元素为 3，表示着区间\[3\]最大值为 3。
 
@@ -642,7 +642,7 @@ Step 3. 元素 5 入队，此时队首元素为 5，此时队列覆盖范围长�
 
 此时，我们只需要将 A\[0\] 出队即可。如下图所示：
 
-![8.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SX6ADn1yAAlfQannP2I331.gif)  
+![8.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_SX6ADn1yAAlfQannP2I331.gif)  
 Step 4. 将元素 A\[0\] = 3 出队，由于此时 3 != Q.getFirst()，所以什么也不做。队列覆盖范围为 \[2, 5\]，长度为 2。
 
 Step 5. 将 A\[3\] = 6 入队，此时队首元素为 6，覆盖范围为\[2,5,6\]，覆盖长度为 3，可以得到**区间 \[2,5,6\] 最大值为 6**。
@@ -674,14 +674,14 @@ Step 7. 将 A\[4\] = 4 入队，此时覆盖范围为 \[5, 6, 4\]，覆盖长度
 
 **解释**：
 
-![Drawing 68.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_S1aAJXv9AABKF_TFCN8607.png)
+![Drawing 68.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_S1aAJXv9AABKF_TFCN8607.png)
 
 【**分析**】这是一道来自 **eBay** 的面试题。拿到时题目之后，可以发现，题目要求还是比较赤裸裸的，不妨先模拟一下，看看能不能想到比较好的解决办法。
 
 **1\. 模拟**
 
 首先我们发现窗口在滑动的时候，有元素不停地进出。因此，可以采用**队列**来试一下。由于窗口长度为 3，所以将队列的长度固定为 3。  
-![9.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_ScmAQ8ZYAAoV9uo-AJQ439.gif)
+![9.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_ScmAQ8ZYAAoV9uo-AJQ439.gif)
 
 Step 1. 首先将元素 1 入队。
 
@@ -729,13 +729,13 @@ Step 6. 将 -1 队出，然后再将 3 入队，可以得到 \[3,5,3\] 的最大
 
 那么，应该用哪种呢？首先我们看一下**严格单调递减**是否可以工作，如下图所示：
 
-![Drawing 76.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TDqAU-urAADUKwAZCHk961.png)
+![Drawing 76.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TDqAU-urAADUKwAZCHk961.png)
 
 假设执行到 A\[2\] = 3 时，采用**严格单调递减（队列中相等的元素也会被踢出去）**，入队时，A\[2\] 将会把所有的元素都踢出队列，队列变成 \[3\]，那么可以得到 \[3,2,3\] 的最大值为 3。
 
 但是由于窗口滑动的时候，接着需要把 A\[0\] = 3 出队，出队之后，队列为空。然后再将 A\[3\] = 1 入队得到。
 
-![Drawing 78.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TEyAfSBRAADZkvnyEtw271.png)
+![Drawing 78.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TEyAfSBRAADZkvnyEtw271.png)
 
 此时得到 \[2,3,1\] 的最大值为 1，这就出错了！所以我们**不能使用严格单调递减队列求解**。
 
@@ -842,7 +842,7 @@ class Solution {
 
 在分析题目时，一种办法是顺着题意走，另外一种办法是做假设。假设我们已经知道了走到 \[0, i-1\] 时收获的金币数目，用 get\[\] 数组来存放，那么走到 A\[i\] 最多可以收获的金币数目可以是下图这样：
 
-![Drawing 80.png](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_S4SAXevyAABpi3LNISI737.png)
+![Drawing 80.png](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_S4SAXevyAABpi3LNISI737.png)
 
 ```java
 get[i] = max(get[i-k, ...., i-1]) + A[i]
@@ -856,7 +856,7 @@ get[i] = max(get[max(i-k, 0), ...., i-1]) + A[i]
 
 接下来采用上述方法来进行一波演算，以 \[1,-1,-100,-100000,100,3\], k = 2 为例，具体动图如下：
 
-![10.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TACALWYlAB5Uh_D8ZdQ298.gif)
+![10.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TACALWYlAB5Uh_D8ZdQ298.gif)
 
 1\. index = 0 时，前面没有元素，所以 get\[0\] = A\[0\]
 
@@ -881,7 +881,7 @@ get[i] = max(get[max(i-k, 0), ...., i-1]) + A[i]
 **4\. 边界**  
 这里要特别注意的是第一个元素 get\[0\]。此时单调队列为空。在求 get\[0\] 的时候，不能去单调队列中找最大值，要直接设置 get\[0\] = A\[0\]。
 
-![11.gif](http://p4ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TH6AUMlAAB3Xvu5uEzw814.gif)
+![11.gif](http://p6ui.toweydoc.tech:20080/images/stydocs/Cgp9HWA_TH6AUMlAAB3Xvu5uEzw814.gif)
 
 Step1. 当 index = 0 时，队列 Q\[\] 为空，那么 get\[0\] = A\[0\]。然后将 A\[0\] 入队。
 
@@ -1018,7 +1018,7 @@ class Solution {
 
 至此，你已经了解了单调队列的用法和特性。和“[第 01 讲](https://kaiwu.lagou.com/course/courseInfo.htm?courseId=685#/detail/pc?id=6690)”一样，经过不断地“浇灌”，我们又得到了一棵枝繁叶茂的“大树”。回到知识层面，我把本讲重点介绍、且需要你掌握的内容总结在一张思维导图中，如下图所示：
 
-![Drawing 98.png](http://p4ui.toweydoc.tech:20080/images/stydocs/CioPOWA_TLCATeR6AAFTfMBlaiw858.png)
+![Drawing 98.png](http://p6ui.toweydoc.tech:20080/images/stydocs/CioPOWA_TLCATeR6AAFTfMBlaiw858.png)
 
 每个学科都会涉及很多知识，靠做题记知识点，就容易出现知识之间的割裂而形成孤立地，无法将知识系统化。希望你在做题的过程中能够主动尝试建立知识之间的联系，主动思考如何让新知识与原有知识相关联，提高学习效率。比如，循环队列实际上也是单调队列的好帮手，当然你也可以用来实现 FIFO 队列。
 

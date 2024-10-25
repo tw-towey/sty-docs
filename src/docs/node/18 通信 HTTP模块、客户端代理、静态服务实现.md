@@ -437,11 +437,11 @@ C:\Users\tony\AppData\Roaming\npm
 
 windows下执行文件在`C:\Users\tony\AppData\Roaming\npm`目录下
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/8e31f169-f3b8-42e8-b35d-bae5acc43ea2.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/8e31f169-f3b8-42e8-b35d-bae5acc43ea2.png)
 
 `unzip`命令全局包地址在`C:\Users\tony\AppData\Roaming\npm\node_modules\node`文件夹下
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/424393c4-409a-41c9-abbc-99f036cec418.png)
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/424393c4-409a-41c9-abbc-99f036cec418.png)
 
 `mac`版执行命令
 
@@ -452,7 +452,7 @@ npm config get prefix
 
 mac下执行文件在`/usr/local/bin`目录下
 
-![在这里插入图片描述](http://p4ui.toweydoc.tech:20080/images/stydocs/b6047af4-3d85-4ac4-918b-6332be26e6c3.png);
+![在这里插入图片描述](http://p6ui.toweydoc.tech:20080/images/stydocs/b6047af4-3d85-4ac4-918b-6332be26e6c3.png);
 
 `unzip`命令全局包地址在`/usr/local/lib/node_modules/node`文件夹下
 
